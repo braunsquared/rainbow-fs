@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ItemInspector should inspect an items field definitions 1`] = `
+Object {
+  "errors": Array [],
+  "fields": Array [
+    Object {
+      "ID": "aad95a88-cecc-4f18-ad44-2fdd0f2777cc",
+      "Item": Item {
+        "DB": "master",
+        "ID": "aad95a88-cecc-4f18-ad44-2fdd0f2777cc",
+        "Languages": Array [
+          Language {
+            "Fields": Array [],
+            "Language": "en",
+            "Versions": Array [
+              Version {
+                "Fields": Array [
+                  Field {
+                    "Hint": "__Created",
+                    "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                    "Type": undefined,
+                    "Value": "20180919T212018Z",
+                  },
+                ],
+                "Version": 1,
+              },
+            ],
+          },
+        ],
+        "Meta": Object {
+          "hints": Map {
+            Symbol(filename) => "C:\\\\data\\\\Templates\\\\TestProject\\\\Components\\\\ContentBlock\\\\Data\\\\content.yml",
+          },
+          "isDirty": false,
+          "isNew": false,
+        },
+        "Parent": "1bc04f33-264f-4c03-9d23-87cf9b14044b",
+        "Path": Path {
+          "Folder": "/sitecore/templates/Helix/Project/TestProject/Components/ContentBlock/Data",
+          "Name": "content",
+          "Path": "/sitecore/templates/Helix/Project/TestProject/Components/ContentBlock/Data/content",
+          "Tokens": Array [
+            "sitecore",
+            "templates",
+            "Helix",
+            "Project",
+            "TestProject",
+            "Components",
+            "ContentBlock",
+            "Data",
+            "content",
+          ],
+        },
+        "SharedFields": Array [
+          Field {
+            "Hint": "Type",
+            "ID": "ab162cc0-dc80-4abf-8871-998ee5d7ba32",
+            "Type": undefined,
+            "Value": "Rich Text",
+          },
+          Field {
+            "Hint": "__Sortorder",
+            "ID": "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e",
+            "Type": undefined,
+            "Value": 200,
+          },
+        ],
+        "Template": "455a3e98-a627-4b40-8035-e683a0331ac7",
+      },
+      "Name": "content",
+      "Shared": false,
+      "Type": "Rich Text",
+      "Unversioned": false,
+    },
+    Object {
+      "ID": "5813fa39-94c0-45b4-95fc-f22236aeb9a6",
+      "Item": Item {
+        "DB": "master",
+        "ID": "5813fa39-94c0-45b4-95fc-f22236aeb9a6",
+        "Languages": Array [
+          Language {
+            "Fields": Array [],
+            "Language": "en",
+            "Versions": Array [
+              Version {
+                "Fields": Array [
+                  Field {
+                    "Hint": "__Created",
+                    "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                    "Type": undefined,
+                    "Value": "20180919T212018Z",
+                  },
+                ],
+                "Version": 1,
+              },
+            ],
+          },
+        ],
+        "Meta": Object {
+          "hints": Map {
+            Symbol(filename) => "C:\\\\data\\\\Templates\\\\TestProject\\\\Components\\\\ContentBlock\\\\Data\\\\heading.yml",
+          },
+          "isDirty": false,
+          "isNew": false,
+        },
+        "Parent": "1bc04f33-264f-4c03-9d23-87cf9b14044b",
+        "Path": Path {
+          "Folder": "/sitecore/templates/Helix/Project/TestProject/Components/ContentBlock/Data",
+          "Name": "heading",
+          "Path": "/sitecore/templates/Helix/Project/TestProject/Components/ContentBlock/Data/heading",
+          "Tokens": Array [
+            "sitecore",
+            "templates",
+            "Helix",
+            "Project",
+            "TestProject",
+            "Components",
+            "ContentBlock",
+            "Data",
+            "heading",
+          ],
+        },
+        "SharedFields": Array [
+          Field {
+            "Hint": "Type",
+            "ID": "ab162cc0-dc80-4abf-8871-998ee5d7ba32",
+            "Type": undefined,
+            "Value": "Single-Line Text",
+          },
+        ],
+        "Template": "455a3e98-a627-4b40-8035-e683a0331ac7",
+      },
+      "Name": "heading",
+      "Shared": false,
+      "Type": "Single-Line Text",
+      "Unversioned": false,
+    },
+  ],
+}
+`;

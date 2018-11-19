@@ -1,0 +1,29 @@
+﻿---
+ID: "8a0619de-2ee0-4cf3-801c-8cebec5d2104"
+Parent: "f529a584-cec1-41a7-9eeb-334938a98285"
+Template: "f529a584-cec1-41a7-9eeb-334938a98285"
+Path: /sitecore/templates/Helix/Project/TestProject/Routes/App Route/__Standard Values
+DB: master
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{C726B750-60D7-49CF-A39C-5C729ACF8531}">
+        <p
+          uid="{42FCCB74-B2B0-4372-85E5-20E0F0A0216E}"
+          key="jss-main"
+          md="{174A907F-0627-4691-BF12-3083B65743E3}" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180917T194639Z

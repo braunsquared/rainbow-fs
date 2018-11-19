@@ -1,0 +1,210 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BucketTree should contain 2 buckets which are siblings 1`] = `
+BucketTree {
+  "root": BucketEntry {
+    "bucket": null,
+    "children": Array [
+      BucketEntry {
+        "bucket": Bucket {
+          "DB": "master",
+          "Filepath": "/data/content",
+          "Path": Path {
+            "Folder": "/sitecore",
+            "Name": "content",
+            "Path": "/sitecore/content",
+            "Tokens": Array [
+              "sitecore",
+              "content",
+            ],
+          },
+        },
+        "children": Array [],
+        "parent": [Circular],
+        "path": "/sitecore/content",
+      },
+      BucketEntry {
+        "bucket": Bucket {
+          "DB": "master",
+          "Filepath": "/data/templates",
+          "Path": Path {
+            "Folder": "/sitecore",
+            "Name": "templates",
+            "Path": "/sitecore/templates",
+            "Tokens": Array [
+              "sitecore",
+              "templates",
+            ],
+          },
+        },
+        "children": Array [],
+        "parent": [Circular],
+        "path": "/sitecore/templates",
+      },
+    ],
+    "parent": null,
+    "path": "",
+  },
+}
+`;
+
+exports[`BucketTree should contain a single bucket 1`] = `
+BucketTree {
+  "root": BucketEntry {
+    "bucket": null,
+    "children": Array [
+      BucketEntry {
+        "bucket": Bucket {
+          "DB": "master",
+          "Filepath": "/data/content",
+          "Path": Path {
+            "Folder": "/sitecore",
+            "Name": "content",
+            "Path": "/sitecore/content",
+            "Tokens": Array [
+              "sitecore",
+              "content",
+            ],
+          },
+        },
+        "children": Array [],
+        "parent": [Circular],
+        "path": "/sitecore/content",
+      },
+    ],
+    "parent": null,
+    "path": "",
+  },
+}
+`;
+
+exports[`BucketTree should have a tree of buckets with descendants 1`] = `
+BucketTree {
+  "root": BucketEntry {
+    "bucket": null,
+    "children": Array [
+      BucketEntry {
+        "bucket": Bucket {
+          "DB": "master",
+          "Filepath": "/data/content",
+          "Path": Path {
+            "Folder": "/sitecore",
+            "Name": "content",
+            "Path": "/sitecore/content",
+            "Tokens": Array [
+              "sitecore",
+              "content",
+            ],
+          },
+        },
+        "children": Array [
+          BucketEntry {
+            "bucket": Bucket {
+              "DB": "master",
+              "Filepath": "/data/helix/content",
+              "Path": Path {
+                "Folder": "/sitecore/content",
+                "Name": "Helix",
+                "Path": "/sitecore/content/Helix",
+                "Tokens": Array [
+                  "sitecore",
+                  "content",
+                  "Helix",
+                ],
+              },
+            },
+            "children": Array [
+              BucketEntry {
+                "bucket": Bucket {
+                  "DB": "master",
+                  "Filepath": "/data/helix/foundation/layer.project",
+                  "Path": Path {
+                    "Folder": "/sitecore/content/Helix",
+                    "Name": "Project",
+                    "Path": "/sitecore/content/Helix/Project",
+                    "Tokens": Array [
+                      "sitecore",
+                      "content",
+                      "Helix",
+                      "Project",
+                    ],
+                  },
+                },
+                "children": Array [
+                  BucketEntry {
+                    "bucket": Bucket {
+                      "DB": "master",
+                      "Filepath": "/data/helix/project/test",
+                      "Path": Path {
+                        "Folder": "/sitecore/content/Helix/Project",
+                        "Name": "TestProject",
+                        "Path": "/sitecore/content/Helix/Project/TestProject",
+                        "Tokens": Array [
+                          "sitecore",
+                          "content",
+                          "Helix",
+                          "Project",
+                          "TestProject",
+                        ],
+                      },
+                    },
+                    "children": Array [],
+                    "parent": [Circular],
+                    "path": "/TestProject",
+                  },
+                ],
+                "parent": [Circular],
+                "path": "/Project",
+              },
+              BucketEntry {
+                "bucket": Bucket {
+                  "DB": "master",
+                  "Filepath": "/data/helix/foundation/layer.foundation",
+                  "Path": Path {
+                    "Folder": "/sitecore/content/Helix",
+                    "Name": "Foundation",
+                    "Path": "/sitecore/content/Helix/Foundation",
+                    "Tokens": Array [
+                      "sitecore",
+                      "content",
+                      "Helix",
+                      "Foundation",
+                    ],
+                  },
+                },
+                "children": Array [],
+                "parent": [Circular],
+                "path": "/Foundation",
+              },
+            ],
+            "parent": [Circular],
+            "path": "/Helix",
+          },
+        ],
+        "parent": [Circular],
+        "path": "/sitecore/content",
+      },
+      BucketEntry {
+        "bucket": Bucket {
+          "DB": "master",
+          "Filepath": "/data/templates",
+          "Path": Path {
+            "Folder": "/sitecore",
+            "Name": "templates",
+            "Path": "/sitecore/templates",
+            "Tokens": Array [
+              "sitecore",
+              "templates",
+            ],
+          },
+        },
+        "children": Array [],
+        "parent": [Circular],
+        "path": "/sitecore/templates",
+      },
+    ],
+    "parent": null,
+    "path": "",
+  },
+}
+`;

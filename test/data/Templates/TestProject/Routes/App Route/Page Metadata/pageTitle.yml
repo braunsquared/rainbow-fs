@@ -1,0 +1,18 @@
+﻿---
+ID: "5330c186-146f-4145-97e1-10a974493ea4"
+Parent: "66d58577-b9cb-4b00-a08f-9024fe780b05"
+Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
+Path: /sitecore/templates/Helix/Project/TestProject/Routes/App Route/Page Metadata/pageTitle
+DB: master
+SharedFields:
+- ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
+  Hint: Type
+  Value: "Single-Line Text"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180917T192504Z

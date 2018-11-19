@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`field util should parse a treelist value with a single item 1`] = `
+Array [
+  "1930bbeb-7805-471a-a3be-4858ac7cf696",
+]
+`;
+
+exports[`field util should parse a treelist value with multiple item 1`] = `
+Array [
+  "1930bbeb-7805-471a-a3be-4858ac7cf696",
+  "b9764823-cf16-4e03-beaa-c0eabed31d6c",
+]
+`;

@@ -1,0 +1,18 @@
+﻿---
+ID: "e4064c34-b165-4916-9081-ecd6970661d1"
+Parent: "261918c5-521a-422d-ae59-23f1d39ee0a3"
+Template: "261918c5-521a-422d-ae59-23f1d39ee0a3"
+Path: /sitecore/templates/Helix/Project/TestProject/Components/ContentBlock/__Standard Values
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180919T212053Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

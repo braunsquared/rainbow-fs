@@ -1,0 +1,1460 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Store should find a field by id using the a specified language 1`] = `undefined`;
+
+exports[`Store should find a field by id using the default language 1`] = `undefined`;
+
+exports[`Store should find a field by name using a specified language 1`] = `undefined`;
+
+exports[`Store should find a field by name using the default language 1`] = `undefined`;
+
+exports[`Store should match against a glob pattern 1`] = `
+Array [
+  Item {
+    "DB": "master",
+    "ID": "87120214-1be8-7c76-05c1-eaebfbffec1d",
+    "Languages": Array [
+      Language {
+        "Fields": Array [],
+        "Language": "en",
+        "Versions": Array [
+          Version {
+            "Fields": Array [
+              Field {
+                "Hint": "__Created",
+                "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                "Type": undefined,
+                "Value": "20170511T175500Z",
+              },
+              Field {
+                "Hint": "__Created by",
+                "ID": "5dd74568-4d4b-44c1-b513-0af5f4cda34f",
+                "Type": undefined,
+                "Value": "sitecore\\\\Admin
+",
+              },
+            ],
+            "Version": 1,
+          },
+        ],
+      },
+    ],
+    "Meta": Object {
+      "hints": Map {
+        Symbol(filename) => "C:\\\\data\\\\Renderings\\\\TestProject.yml",
+      },
+      "isDirty": false,
+      "isNew": false,
+    },
+    "Parent": "fb60a1b5-aa8c-adc4-47c6-bf400521859f",
+    "Path": Path {
+      "Folder": "/sitecore/layout/Renderings/Helix/Project",
+      "Name": "TestProject",
+      "Path": "/sitecore/layout/Renderings/Helix/Project/TestProject",
+      "Tokens": Array [
+        "sitecore",
+        "layout",
+        "Renderings",
+        "Helix",
+        "Project",
+        "TestProject",
+      ],
+    },
+    "SharedFields": Array [
+      Field {
+        "Hint": "__Masters",
+        "ID": "1172f251-dad4-4efb-a329-0c63500e4f1e",
+        "Type": "TreelistEx",
+        "Value": "{F1F1D639-4F54-40C2-8BE0-81266B392CEB}
+{1DDE3F02-0BD7-4779-867A-DC578ADF91EA}
+{39587D7D-F06D-4CB4-A25E-AA7D847EDDD0}
+{83E993C5-C0FC-4472-86A9-2F6CFED694E4}
+{7EE0975B-0698-493E-B3A2-0B2EF33D0522}
+{04646A89-996F-4EE7-878A-FFDBF1F0EF0D}
+",
+      },
+    ],
+    "Template": "7ee0975b-0698-493e-b3a2-0b2ef33d0522",
+  },
+  Item {
+    "DB": "master",
+    "ID": "fb4334ae-526a-4080-af91-a27ba76c2b47",
+    "Languages": Array [
+      Language {
+        "Fields": Array [],
+        "Language": "en",
+        "Versions": Array [
+          Version {
+            "Fields": Array [
+              Field {
+                "Hint": "__Created",
+                "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                "Type": undefined,
+                "Value": "20181030T161259Z",
+              },
+            ],
+            "Version": 1,
+          },
+        ],
+      },
+    ],
+    "Meta": Object {
+      "hints": Map {
+        Symbol(filename) => "C:\\\\data\\\\Renderings\\\\TestProject\\\\GlobalFooter.yml",
+      },
+      "isDirty": false,
+      "isNew": false,
+    },
+    "Parent": "87120214-1be8-7c76-05c1-eaebfbffec1d",
+    "Path": Path {
+      "Folder": "/sitecore/layout/Renderings/Helix/Project/TestProject",
+      "Name": "GlobalFooter",
+      "Path": "/sitecore/layout/Renderings/Helix/Project/TestProject/GlobalFooter",
+      "Tokens": Array [
+        "sitecore",
+        "layout",
+        "Renderings",
+        "Helix",
+        "Project",
+        "TestProject",
+        "GlobalFooter",
+      ],
+    },
+    "SharedFields": Array [
+      Field {
+        "Hint": "componentName",
+        "ID": "037fe404-dd19-4bf7-8e30-4dadf68b27b0",
+        "Type": undefined,
+        "Value": "GlobalFooter",
+      },
+      Field {
+        "Hint": "Datasource Template",
+        "ID": "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f",
+        "Type": undefined,
+        "Value": "/sitecore/templates/Helix/Project/TestProject/DataSources/GlobalFooter",
+      },
+      Field {
+        "Hint": "Datasource Location",
+        "ID": "b5b27af1-25ef-405c-87ce-369b3a004016",
+        "Type": undefined,
+        "Value": "query:./ancestor-or-self::*[@@templatename='App']/Components/GlobalFooter",
+      },
+    ],
+    "Template": "04646a89-996f-4ee7-878a-ffdbf1f0ef0d",
+  },
+  Item {
+    "DB": "master",
+    "ID": "e4be58e2-a01c-4365-996e-7cb6684ed945",
+    "Languages": Array [
+      Language {
+        "Fields": Array [],
+        "Language": "en",
+        "Versions": Array [
+          Version {
+            "Fields": Array [
+              Field {
+                "Hint": "__Created",
+                "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                "Type": undefined,
+                "Value": "20181029T144143Z",
+              },
+            ],
+            "Version": 1,
+          },
+        ],
+      },
+    ],
+    "Meta": Object {
+      "hints": Map {
+        Symbol(filename) => "C:\\\\data\\\\Renderings\\\\TestProject\\\\GlobalNav.yml",
+      },
+      "isDirty": false,
+      "isNew": false,
+    },
+    "Parent": "87120214-1be8-7c76-05c1-eaebfbffec1d",
+    "Path": Path {
+      "Folder": "/sitecore/layout/Renderings/Helix/Project/TestProject",
+      "Name": "GlobalNav",
+      "Path": "/sitecore/layout/Renderings/Helix/Project/TestProject/GlobalNav",
+      "Tokens": Array [
+        "sitecore",
+        "layout",
+        "Renderings",
+        "Helix",
+        "Project",
+        "TestProject",
+        "GlobalNav",
+      ],
+    },
+    "SharedFields": Array [
+      Field {
+        "Hint": "componentName",
+        "ID": "037fe404-dd19-4bf7-8e30-4dadf68b27b0",
+        "Type": undefined,
+        "Value": "GlobalNav",
+      },
+      Field {
+        "Hint": "Datasource Template",
+        "ID": "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f",
+        "Type": undefined,
+        "Value": "/sitecore/templates/Helix/Project/TestProject/DataSources/GlobalNav",
+      },
+      Field {
+        "Hint": "Datasource Location",
+        "ID": "b5b27af1-25ef-405c-87ce-369b3a004016",
+        "Type": undefined,
+        "Value": "query:./ancestor-or-self::*[@@templatename='App']/Components/GlobalNav",
+      },
+    ],
+    "Template": "04646a89-996f-4ee7-878a-ffdbf1f0ef0d",
+  },
+]
+`;
+
+exports[`Store should match against a glob pattern scoped to a db: items 1`] = `
+Array [
+  Item {
+    "DB": "master",
+    "ID": "fb4334ae-526a-4080-af91-a27ba76c2b47",
+    "Languages": Array [
+      Language {
+        "Fields": Array [],
+        "Language": "en",
+        "Versions": Array [
+          Version {
+            "Fields": Array [
+              Field {
+                "Hint": "__Created",
+                "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                "Type": undefined,
+                "Value": "20181030T161259Z",
+              },
+            ],
+            "Version": 1,
+          },
+        ],
+      },
+    ],
+    "Meta": Object {
+      "hints": Map {
+        Symbol(filename) => "C:\\\\data\\\\Renderings\\\\TestProject\\\\GlobalFooter.yml",
+      },
+      "isDirty": false,
+      "isNew": false,
+    },
+    "Parent": "87120214-1be8-7c76-05c1-eaebfbffec1d",
+    "Path": Path {
+      "Folder": "/sitecore/layout/Renderings/Helix/Project/TestProject",
+      "Name": "GlobalFooter",
+      "Path": "/sitecore/layout/Renderings/Helix/Project/TestProject/GlobalFooter",
+      "Tokens": Array [
+        "sitecore",
+        "layout",
+        "Renderings",
+        "Helix",
+        "Project",
+        "TestProject",
+        "GlobalFooter",
+      ],
+    },
+    "SharedFields": Array [
+      Field {
+        "Hint": "componentName",
+        "ID": "037fe404-dd19-4bf7-8e30-4dadf68b27b0",
+        "Type": undefined,
+        "Value": "GlobalFooter",
+      },
+      Field {
+        "Hint": "Datasource Template",
+        "ID": "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f",
+        "Type": undefined,
+        "Value": "/sitecore/templates/Helix/Project/TestProject/DataSources/GlobalFooter",
+      },
+      Field {
+        "Hint": "Datasource Location",
+        "ID": "b5b27af1-25ef-405c-87ce-369b3a004016",
+        "Type": undefined,
+        "Value": "query:./ancestor-or-self::*[@@templatename='App']/Components/GlobalFooter",
+      },
+    ],
+    "Template": "04646a89-996f-4ee7-878a-ffdbf1f0ef0d",
+  },
+  Item {
+    "DB": "master",
+    "ID": "e4be58e2-a01c-4365-996e-7cb6684ed945",
+    "Languages": Array [
+      Language {
+        "Fields": Array [],
+        "Language": "en",
+        "Versions": Array [
+          Version {
+            "Fields": Array [
+              Field {
+                "Hint": "__Created",
+                "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                "Type": undefined,
+                "Value": "20181029T144143Z",
+              },
+            ],
+            "Version": 1,
+          },
+        ],
+      },
+    ],
+    "Meta": Object {
+      "hints": Map {
+        Symbol(filename) => "C:\\\\data\\\\Renderings\\\\TestProject\\\\GlobalNav.yml",
+      },
+      "isDirty": false,
+      "isNew": false,
+    },
+    "Parent": "87120214-1be8-7c76-05c1-eaebfbffec1d",
+    "Path": Path {
+      "Folder": "/sitecore/layout/Renderings/Helix/Project/TestProject",
+      "Name": "GlobalNav",
+      "Path": "/sitecore/layout/Renderings/Helix/Project/TestProject/GlobalNav",
+      "Tokens": Array [
+        "sitecore",
+        "layout",
+        "Renderings",
+        "Helix",
+        "Project",
+        "TestProject",
+        "GlobalNav",
+      ],
+    },
+    "SharedFields": Array [
+      Field {
+        "Hint": "componentName",
+        "ID": "037fe404-dd19-4bf7-8e30-4dadf68b27b0",
+        "Type": undefined,
+        "Value": "GlobalNav",
+      },
+      Field {
+        "Hint": "Datasource Template",
+        "ID": "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f",
+        "Type": undefined,
+        "Value": "/sitecore/templates/Helix/Project/TestProject/DataSources/GlobalNav",
+      },
+      Field {
+        "Hint": "Datasource Location",
+        "ID": "b5b27af1-25ef-405c-87ce-369b3a004016",
+        "Type": undefined,
+        "Value": "query:./ancestor-or-self::*[@@templatename='App']/Components/GlobalNav",
+      },
+    ],
+    "Template": "04646a89-996f-4ee7-878a-ffdbf1f0ef0d",
+  },
+]
+`;
+
+exports[`Store should match against a glob pattern scoped to a db: items 2`] = `
+Array [
+  Item {
+    "DB": "master",
+    "ID": "fb4334ae-526a-4080-af91-a27ba76c2b47",
+    "Languages": Array [
+      Language {
+        "Fields": Array [],
+        "Language": "en",
+        "Versions": Array [
+          Version {
+            "Fields": Array [
+              Field {
+                "Hint": "__Created",
+                "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                "Type": undefined,
+                "Value": "20181030T161259Z",
+              },
+            ],
+            "Version": 1,
+          },
+        ],
+      },
+    ],
+    "Meta": Object {
+      "hints": Map {
+        Symbol(filename) => "C:\\\\data\\\\Renderings\\\\TestProject\\\\GlobalFooter.yml",
+      },
+      "isDirty": false,
+      "isNew": false,
+    },
+    "Parent": "87120214-1be8-7c76-05c1-eaebfbffec1d",
+    "Path": Path {
+      "Folder": "/sitecore/layout/Renderings/Helix/Project/TestProject",
+      "Name": "GlobalFooter",
+      "Path": "/sitecore/layout/Renderings/Helix/Project/TestProject/GlobalFooter",
+      "Tokens": Array [
+        "sitecore",
+        "layout",
+        "Renderings",
+        "Helix",
+        "Project",
+        "TestProject",
+        "GlobalFooter",
+      ],
+    },
+    "SharedFields": Array [
+      Field {
+        "Hint": "componentName",
+        "ID": "037fe404-dd19-4bf7-8e30-4dadf68b27b0",
+        "Type": undefined,
+        "Value": "GlobalFooter",
+      },
+      Field {
+        "Hint": "Datasource Template",
+        "ID": "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f",
+        "Type": undefined,
+        "Value": "/sitecore/templates/Helix/Project/TestProject/DataSources/GlobalFooter",
+      },
+      Field {
+        "Hint": "Datasource Location",
+        "ID": "b5b27af1-25ef-405c-87ce-369b3a004016",
+        "Type": undefined,
+        "Value": "query:./ancestor-or-self::*[@@templatename='App']/Components/GlobalFooter",
+      },
+    ],
+    "Template": "04646a89-996f-4ee7-878a-ffdbf1f0ef0d",
+  },
+  Item {
+    "DB": "master",
+    "ID": "e4be58e2-a01c-4365-996e-7cb6684ed945",
+    "Languages": Array [
+      Language {
+        "Fields": Array [],
+        "Language": "en",
+        "Versions": Array [
+          Version {
+            "Fields": Array [
+              Field {
+                "Hint": "__Created",
+                "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                "Type": undefined,
+                "Value": "20181029T144143Z",
+              },
+            ],
+            "Version": 1,
+          },
+        ],
+      },
+    ],
+    "Meta": Object {
+      "hints": Map {
+        Symbol(filename) => "C:\\\\data\\\\Renderings\\\\TestProject\\\\GlobalNav.yml",
+      },
+      "isDirty": false,
+      "isNew": false,
+    },
+    "Parent": "87120214-1be8-7c76-05c1-eaebfbffec1d",
+    "Path": Path {
+      "Folder": "/sitecore/layout/Renderings/Helix/Project/TestProject",
+      "Name": "GlobalNav",
+      "Path": "/sitecore/layout/Renderings/Helix/Project/TestProject/GlobalNav",
+      "Tokens": Array [
+        "sitecore",
+        "layout",
+        "Renderings",
+        "Helix",
+        "Project",
+        "TestProject",
+        "GlobalNav",
+      ],
+    },
+    "SharedFields": Array [
+      Field {
+        "Hint": "componentName",
+        "ID": "037fe404-dd19-4bf7-8e30-4dadf68b27b0",
+        "Type": undefined,
+        "Value": "GlobalNav",
+      },
+      Field {
+        "Hint": "Datasource Template",
+        "ID": "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f",
+        "Type": undefined,
+        "Value": "/sitecore/templates/Helix/Project/TestProject/DataSources/GlobalNav",
+      },
+      Field {
+        "Hint": "Datasource Location",
+        "ID": "b5b27af1-25ef-405c-87ce-369b3a004016",
+        "Type": undefined,
+        "Value": "query:./ancestor-or-self::*[@@templatename='App']/Components/GlobalNav",
+      },
+    ],
+    "Template": "04646a89-996f-4ee7-878a-ffdbf1f0ef0d",
+  },
+]
+`;
+
+exports[`Store should read all the buckets 1`] = `
+Store {
+  "_config": Object {
+    "dbFactory": [Function],
+    "idSource": [Function],
+    "itemFactory": [Function],
+  },
+  "_dbs": Map {
+    "master" => MemoryDb {
+      "_items": Map {
+        "87120214-1be8-7c76-05c1-eaebfbffec1d" => Item {
+          "DB": "master",
+          "ID": "87120214-1be8-7c76-05c1-eaebfbffec1d",
+          "Languages": Array [
+            Language {
+              "Fields": Array [],
+              "Language": "en",
+              "Versions": Array [
+                Version {
+                  "Fields": Array [
+                    Field {
+                      "Hint": "__Created",
+                      "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                      "Type": undefined,
+                      "Value": "20170511T175500Z",
+                    },
+                    Field {
+                      "Hint": "__Created by",
+                      "ID": "5dd74568-4d4b-44c1-b513-0af5f4cda34f",
+                      "Type": undefined,
+                      "Value": "sitecore\\\\Admin
+",
+                    },
+                  ],
+                  "Version": 1,
+                },
+              ],
+            },
+          ],
+          "Meta": Object {
+            "hints": Map {
+              Symbol(filename) => "C:\\\\data\\\\Renderings\\\\TestProject.yml",
+            },
+            "isDirty": false,
+            "isNew": false,
+          },
+          "Parent": "fb60a1b5-aa8c-adc4-47c6-bf400521859f",
+          "Path": Path {
+            "Folder": "/sitecore/layout/Renderings/Helix/Project",
+            "Name": "TestProject",
+            "Path": "/sitecore/layout/Renderings/Helix/Project/TestProject",
+            "Tokens": Array [
+              "sitecore",
+              "layout",
+              "Renderings",
+              "Helix",
+              "Project",
+              "TestProject",
+            ],
+          },
+          "SharedFields": Array [
+            Field {
+              "Hint": "__Masters",
+              "ID": "1172f251-dad4-4efb-a329-0c63500e4f1e",
+              "Type": "TreelistEx",
+              "Value": "{F1F1D639-4F54-40C2-8BE0-81266B392CEB}
+{1DDE3F02-0BD7-4779-867A-DC578ADF91EA}
+{39587D7D-F06D-4CB4-A25E-AA7D847EDDD0}
+{83E993C5-C0FC-4472-86A9-2F6CFED694E4}
+{7EE0975B-0698-493E-B3A2-0B2EF33D0522}
+{04646A89-996F-4EE7-878A-FFDBF1F0EF0D}
+",
+            },
+          ],
+          "Template": "7ee0975b-0698-493e-b3a2-0b2ef33d0522",
+        },
+        "228d3c60-152b-c3e3-f136-684c4d06d061" => Item {
+          "DB": "master",
+          "ID": "228d3c60-152b-c3e3-f136-684c4d06d061",
+          "Languages": Array [
+            Language {
+              "Fields": Array [],
+              "Language": "en",
+              "Versions": Array [
+                Version {
+                  "Fields": Array [
+                    Field {
+                      "Hint": "__Created",
+                      "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                      "Type": undefined,
+                      "Value": "20170511T175239Z",
+                    },
+                  ],
+                  "Version": 1,
+                },
+              ],
+            },
+          ],
+          "Meta": Object {
+            "hints": Map {
+              Symbol(filename) => "C:\\\\data\\\\Templates\\\\TestProject.yml",
+            },
+            "isDirty": false,
+            "isNew": false,
+          },
+          "Parent": "0725a327-cd61-14f8-8aed-8d74b9917c6c",
+          "Path": Path {
+            "Folder": "/sitecore/templates/Helix/Project",
+            "Name": "TestProject",
+            "Path": "/sitecore/templates/Helix/Project/TestProject",
+            "Tokens": Array [
+              "sitecore",
+              "templates",
+              "Helix",
+              "Project",
+              "TestProject",
+            ],
+          },
+          "SharedFields": Array [],
+          "Template": "0437fee2-44c9-46a6-abe9-28858d9fee8c",
+        },
+        "fb4334ae-526a-4080-af91-a27ba76c2b47" => Item {
+          "DB": "master",
+          "ID": "fb4334ae-526a-4080-af91-a27ba76c2b47",
+          "Languages": Array [
+            Language {
+              "Fields": Array [],
+              "Language": "en",
+              "Versions": Array [
+                Version {
+                  "Fields": Array [
+                    Field {
+                      "Hint": "__Created",
+                      "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                      "Type": undefined,
+                      "Value": "20181030T161259Z",
+                    },
+                  ],
+                  "Version": 1,
+                },
+              ],
+            },
+          ],
+          "Meta": Object {
+            "hints": Map {
+              Symbol(filename) => "C:\\\\data\\\\Renderings\\\\TestProject\\\\GlobalFooter.yml",
+            },
+            "isDirty": false,
+            "isNew": false,
+          },
+          "Parent": "87120214-1be8-7c76-05c1-eaebfbffec1d",
+          "Path": Path {
+            "Folder": "/sitecore/layout/Renderings/Helix/Project/TestProject",
+            "Name": "GlobalFooter",
+            "Path": "/sitecore/layout/Renderings/Helix/Project/TestProject/GlobalFooter",
+            "Tokens": Array [
+              "sitecore",
+              "layout",
+              "Renderings",
+              "Helix",
+              "Project",
+              "TestProject",
+              "GlobalFooter",
+            ],
+          },
+          "SharedFields": Array [
+            Field {
+              "Hint": "componentName",
+              "ID": "037fe404-dd19-4bf7-8e30-4dadf68b27b0",
+              "Type": undefined,
+              "Value": "GlobalFooter",
+            },
+            Field {
+              "Hint": "Datasource Template",
+              "ID": "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f",
+              "Type": undefined,
+              "Value": "/sitecore/templates/Helix/Project/TestProject/DataSources/GlobalFooter",
+            },
+            Field {
+              "Hint": "Datasource Location",
+              "ID": "b5b27af1-25ef-405c-87ce-369b3a004016",
+              "Type": undefined,
+              "Value": "query:./ancestor-or-self::*[@@templatename='App']/Components/GlobalFooter",
+            },
+          ],
+          "Template": "04646a89-996f-4ee7-878a-ffdbf1f0ef0d",
+        },
+        "2b43feed-1143-44d1-96f8-c2ee715f2102" => Item {
+          "DB": "master",
+          "ID": "2b43feed-1143-44d1-96f8-c2ee715f2102",
+          "Languages": Array [
+            Language {
+              "Fields": Array [],
+              "Language": "en",
+              "Versions": Array [
+                Version {
+                  "Fields": Array [
+                    Field {
+                      "Hint": "__Created",
+                      "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                      "Type": undefined,
+                      "Value": "20180919T211302Z",
+                    },
+                    Field {
+                      "Hint": "__Created by",
+                      "ID": "5dd74568-4d4b-44c1-b513-0af5f4cda34f",
+                      "Type": undefined,
+                      "Value": "sitecore\\\\admin
+",
+                    },
+                  ],
+                  "Version": 1,
+                },
+              ],
+            },
+          ],
+          "Meta": Object {
+            "hints": Map {
+              Symbol(filename) => "C:\\\\data\\\\Templates\\\\TestProject\\\\Components.yml",
+            },
+            "isDirty": false,
+            "isNew": false,
+          },
+          "Parent": "228d3c60-152b-c3e3-f136-684c4d06d061",
+          "Path": Path {
+            "Folder": "/sitecore/templates/Helix/Project/TestProject",
+            "Name": "Components",
+            "Path": "/sitecore/templates/Helix/Project/TestProject/Components",
+            "Tokens": Array [
+              "sitecore",
+              "templates",
+              "Helix",
+              "Project",
+              "TestProject",
+              "Components",
+            ],
+          },
+          "SharedFields": Array [],
+          "Template": "0437fee2-44c9-46a6-abe9-28858d9fee8c",
+        },
+        "e4be58e2-a01c-4365-996e-7cb6684ed945" => Item {
+          "DB": "master",
+          "ID": "e4be58e2-a01c-4365-996e-7cb6684ed945",
+          "Languages": Array [
+            Language {
+              "Fields": Array [],
+              "Language": "en",
+              "Versions": Array [
+                Version {
+                  "Fields": Array [
+                    Field {
+                      "Hint": "__Created",
+                      "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                      "Type": undefined,
+                      "Value": "20181029T144143Z",
+                    },
+                  ],
+                  "Version": 1,
+                },
+              ],
+            },
+          ],
+          "Meta": Object {
+            "hints": Map {
+              Symbol(filename) => "C:\\\\data\\\\Renderings\\\\TestProject\\\\GlobalNav.yml",
+            },
+            "isDirty": false,
+            "isNew": false,
+          },
+          "Parent": "87120214-1be8-7c76-05c1-eaebfbffec1d",
+          "Path": Path {
+            "Folder": "/sitecore/layout/Renderings/Helix/Project/TestProject",
+            "Name": "GlobalNav",
+            "Path": "/sitecore/layout/Renderings/Helix/Project/TestProject/GlobalNav",
+            "Tokens": Array [
+              "sitecore",
+              "layout",
+              "Renderings",
+              "Helix",
+              "Project",
+              "TestProject",
+              "GlobalNav",
+            ],
+          },
+          "SharedFields": Array [
+            Field {
+              "Hint": "componentName",
+              "ID": "037fe404-dd19-4bf7-8e30-4dadf68b27b0",
+              "Type": undefined,
+              "Value": "GlobalNav",
+            },
+            Field {
+              "Hint": "Datasource Template",
+              "ID": "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f",
+              "Type": undefined,
+              "Value": "/sitecore/templates/Helix/Project/TestProject/DataSources/GlobalNav",
+            },
+            Field {
+              "Hint": "Datasource Location",
+              "ID": "b5b27af1-25ef-405c-87ce-369b3a004016",
+              "Type": undefined,
+              "Value": "query:./ancestor-or-self::*[@@templatename='App']/Components/GlobalNav",
+            },
+          ],
+          "Template": "04646a89-996f-4ee7-878a-ffdbf1f0ef0d",
+        },
+        "261918c5-521a-422d-ae59-23f1d39ee0a3" => Item {
+          "DB": "master",
+          "ID": "261918c5-521a-422d-ae59-23f1d39ee0a3",
+          "Languages": Array [
+            Language {
+              "Fields": Array [],
+              "Language": "en",
+              "Versions": Array [
+                Version {
+                  "Fields": Array [
+                    Field {
+                      "Hint": "__Created",
+                      "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                      "Type": undefined,
+                      "Value": "20180919T211849Z",
+                    },
+                    Field {
+                      "Hint": "__Created by",
+                      "ID": "5dd74568-4d4b-44c1-b513-0af5f4cda34f",
+                      "Type": undefined,
+                      "Value": "sitecore\\\\admin
+",
+                    },
+                  ],
+                  "Version": 1,
+                },
+              ],
+            },
+          ],
+          "Meta": Object {
+            "hints": Map {
+              Symbol(filename) => "C:\\\\data\\\\Templates\\\\TestProject\\\\Components\\\\ContentBlock.yml",
+            },
+            "isDirty": false,
+            "isNew": false,
+          },
+          "Parent": "2b43feed-1143-44d1-96f8-c2ee715f2102",
+          "Path": Path {
+            "Folder": "/sitecore/templates/Helix/Project/TestProject/Components",
+            "Name": "ContentBlock",
+            "Path": "/sitecore/templates/Helix/Project/TestProject/Components/ContentBlock",
+            "Tokens": Array [
+              "sitecore",
+              "templates",
+              "Helix",
+              "Project",
+              "TestProject",
+              "Components",
+              "ContentBlock",
+            ],
+          },
+          "SharedFields": Array [
+            Field {
+              "Hint": "__Icon",
+              "ID": "06d5295c-ed2f-4a54-9bf2-26228d113318",
+              "Type": undefined,
+              "Value": "office/32x32/document_tag.png",
+            },
+            Field {
+              "Hint": "__Base template",
+              "ID": "12c33f3f-86c5-43a5-aeb4-5598cec45116",
+              "Type": "tree list",
+              "Value": "{1930BBEB-7805-471A-A3BE-4858AC7CF696}",
+            },
+            Field {
+              "Hint": "__Standard values",
+              "ID": "f7d48a55-2158-4f02-9356-756654404f73",
+              "Type": undefined,
+              "Value": "{E4064C34-B165-4916-9081-ECD6970661D1}",
+            },
+          ],
+          "Template": "ab86861a-6030-46c5-b394-e8f99e8b87db",
+        },
+        "e4064c34-b165-4916-9081-ecd6970661d1" => Item {
+          "DB": "master",
+          "ID": "e4064c34-b165-4916-9081-ecd6970661d1",
+          "Languages": Array [
+            Language {
+              "Fields": Array [],
+              "Language": "en",
+              "Versions": Array [
+                Version {
+                  "Fields": Array [
+                    Field {
+                      "Hint": "__Created",
+                      "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                      "Type": undefined,
+                      "Value": "20180919T212053Z",
+                    },
+                    Field {
+                      "Hint": "__Created by",
+                      "ID": "5dd74568-4d4b-44c1-b513-0af5f4cda34f",
+                      "Type": undefined,
+                      "Value": "sitecore\\\\admin
+",
+                    },
+                  ],
+                  "Version": 1,
+                },
+              ],
+            },
+          ],
+          "Meta": Object {
+            "hints": Map {
+              Symbol(filename) => "C:\\\\data\\\\Templates\\\\TestProject\\\\Components\\\\ContentBlock\\\\__Standard Values.yml",
+            },
+            "isDirty": false,
+            "isNew": false,
+          },
+          "Parent": "261918c5-521a-422d-ae59-23f1d39ee0a3",
+          "Path": Path {
+            "Folder": "/sitecore/templates/Helix/Project/TestProject/Components/ContentBlock",
+            "Name": "__Standard Values",
+            "Path": "/sitecore/templates/Helix/Project/TestProject/Components/ContentBlock/__Standard Values",
+            "Tokens": Array [
+              "sitecore",
+              "templates",
+              "Helix",
+              "Project",
+              "TestProject",
+              "Components",
+              "ContentBlock",
+              "__Standard Values",
+            ],
+          },
+          "SharedFields": Array [],
+          "Template": "261918c5-521a-422d-ae59-23f1d39ee0a3",
+        },
+        "1bc04f33-264f-4c03-9d23-87cf9b14044b" => Item {
+          "DB": "master",
+          "ID": "1bc04f33-264f-4c03-9d23-87cf9b14044b",
+          "Languages": Array [
+            Language {
+              "Fields": Array [],
+              "Language": "en",
+              "Versions": Array [
+                Version {
+                  "Fields": Array [
+                    Field {
+                      "Hint": "__Created",
+                      "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                      "Type": undefined,
+                      "Value": "20180919T212017Z",
+                    },
+                    Field {
+                      "Hint": "__Created by",
+                      "ID": "5dd74568-4d4b-44c1-b513-0af5f4cda34f",
+                      "Type": undefined,
+                      "Value": "sitecore\\\\admin
+",
+                    },
+                  ],
+                  "Version": 1,
+                },
+              ],
+            },
+          ],
+          "Meta": Object {
+            "hints": Map {
+              Symbol(filename) => "C:\\\\data\\\\Templates\\\\TestProject\\\\Components\\\\ContentBlock\\\\Data.yml",
+            },
+            "isDirty": false,
+            "isNew": false,
+          },
+          "Parent": "261918c5-521a-422d-ae59-23f1d39ee0a3",
+          "Path": Path {
+            "Folder": "/sitecore/templates/Helix/Project/TestProject/Components/ContentBlock",
+            "Name": "Data",
+            "Path": "/sitecore/templates/Helix/Project/TestProject/Components/ContentBlock/Data",
+            "Tokens": Array [
+              "sitecore",
+              "templates",
+              "Helix",
+              "Project",
+              "TestProject",
+              "Components",
+              "ContentBlock",
+              "Data",
+            ],
+          },
+          "SharedFields": Array [],
+          "Template": "e269fbb5-3750-427a-9149-7aa950b49301",
+        },
+        "aad95a88-cecc-4f18-ad44-2fdd0f2777cc" => Item {
+          "DB": "master",
+          "ID": "aad95a88-cecc-4f18-ad44-2fdd0f2777cc",
+          "Languages": Array [
+            Language {
+              "Fields": Array [],
+              "Language": "en",
+              "Versions": Array [
+                Version {
+                  "Fields": Array [
+                    Field {
+                      "Hint": "__Created",
+                      "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                      "Type": undefined,
+                      "Value": "20180919T212018Z",
+                    },
+                  ],
+                  "Version": 1,
+                },
+              ],
+            },
+          ],
+          "Meta": Object {
+            "hints": Map {
+              Symbol(filename) => "C:\\\\data\\\\Templates\\\\TestProject\\\\Components\\\\ContentBlock\\\\Data\\\\content.yml",
+            },
+            "isDirty": false,
+            "isNew": false,
+          },
+          "Parent": "1bc04f33-264f-4c03-9d23-87cf9b14044b",
+          "Path": Path {
+            "Folder": "/sitecore/templates/Helix/Project/TestProject/Components/ContentBlock/Data",
+            "Name": "content",
+            "Path": "/sitecore/templates/Helix/Project/TestProject/Components/ContentBlock/Data/content",
+            "Tokens": Array [
+              "sitecore",
+              "templates",
+              "Helix",
+              "Project",
+              "TestProject",
+              "Components",
+              "ContentBlock",
+              "Data",
+              "content",
+            ],
+          },
+          "SharedFields": Array [
+            Field {
+              "Hint": "Type",
+              "ID": "ab162cc0-dc80-4abf-8871-998ee5d7ba32",
+              "Type": undefined,
+              "Value": "Rich Text",
+            },
+            Field {
+              "Hint": "__Sortorder",
+              "ID": "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e",
+              "Type": undefined,
+              "Value": 200,
+            },
+          ],
+          "Template": "455a3e98-a627-4b40-8035-e683a0331ac7",
+        },
+        "5813fa39-94c0-45b4-95fc-f22236aeb9a6" => Item {
+          "DB": "master",
+          "ID": "5813fa39-94c0-45b4-95fc-f22236aeb9a6",
+          "Languages": Array [
+            Language {
+              "Fields": Array [],
+              "Language": "en",
+              "Versions": Array [
+                Version {
+                  "Fields": Array [
+                    Field {
+                      "Hint": "__Created",
+                      "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                      "Type": undefined,
+                      "Value": "20180919T212018Z",
+                    },
+                  ],
+                  "Version": 1,
+                },
+              ],
+            },
+          ],
+          "Meta": Object {
+            "hints": Map {
+              Symbol(filename) => "C:\\\\data\\\\Templates\\\\TestProject\\\\Components\\\\ContentBlock\\\\Data\\\\heading.yml",
+            },
+            "isDirty": false,
+            "isNew": false,
+          },
+          "Parent": "1bc04f33-264f-4c03-9d23-87cf9b14044b",
+          "Path": Path {
+            "Folder": "/sitecore/templates/Helix/Project/TestProject/Components/ContentBlock/Data",
+            "Name": "heading",
+            "Path": "/sitecore/templates/Helix/Project/TestProject/Components/ContentBlock/Data/heading",
+            "Tokens": Array [
+              "sitecore",
+              "templates",
+              "Helix",
+              "Project",
+              "TestProject",
+              "Components",
+              "ContentBlock",
+              "Data",
+              "heading",
+            ],
+          },
+          "SharedFields": Array [
+            Field {
+              "Hint": "Type",
+              "ID": "ab162cc0-dc80-4abf-8871-998ee5d7ba32",
+              "Type": undefined,
+              "Value": "Single-Line Text",
+            },
+          ],
+          "Template": "455a3e98-a627-4b40-8035-e683a0331ac7",
+        },
+        "f7b28237-9568-41a4-bcc6-3375e24a1a46" => Item {
+          "DB": "master",
+          "ID": "f7b28237-9568-41a4-bcc6-3375e24a1a46",
+          "Languages": Array [
+            Language {
+              "Fields": Array [],
+              "Language": "en",
+              "Versions": Array [
+                Version {
+                  "Fields": Array [
+                    Field {
+                      "Hint": "__Created",
+                      "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                      "Type": undefined,
+                      "Value": "20180919T211314Z",
+                    },
+                    Field {
+                      "Hint": "__Created by",
+                      "ID": "5dd74568-4d4b-44c1-b513-0af5f4cda34f",
+                      "Type": undefined,
+                      "Value": "sitecore\\\\admin
+",
+                    },
+                  ],
+                  "Version": 1,
+                },
+              ],
+            },
+          ],
+          "Meta": Object {
+            "hints": Map {
+              Symbol(filename) => "C:\\\\data\\\\Templates\\\\TestProject\\\\Routes.yml",
+            },
+            "isDirty": false,
+            "isNew": false,
+          },
+          "Parent": "228d3c60-152b-c3e3-f136-684c4d06d061",
+          "Path": Path {
+            "Folder": "/sitecore/templates/Helix/Project/TestProject",
+            "Name": "Routes",
+            "Path": "/sitecore/templates/Helix/Project/TestProject/Routes",
+            "Tokens": Array [
+              "sitecore",
+              "templates",
+              "Helix",
+              "Project",
+              "TestProject",
+              "Routes",
+            ],
+          },
+          "SharedFields": Array [],
+          "Template": "a87a00b1-e6db-45ab-8b54-636fec3b5523",
+        },
+        "f529a584-cec1-41a7-9eeb-334938a98285" => Item {
+          "DB": "master",
+          "ID": "f529a584-cec1-41a7-9eeb-334938a98285",
+          "Languages": Array [
+            Language {
+              "Fields": Array [],
+              "Language": "en",
+              "Versions": Array [
+                Version {
+                  "Fields": Array [
+                    Field {
+                      "Hint": "__Created",
+                      "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                      "Type": undefined,
+                      "Value": "20180917T192424Z",
+                    },
+                    Field {
+                      "Hint": "__Created by",
+                      "ID": "5dd74568-4d4b-44c1-b513-0af5f4cda34f",
+                      "Type": undefined,
+                      "Value": "sitecore\\\\admin
+",
+                    },
+                  ],
+                  "Version": 1,
+                },
+              ],
+            },
+          ],
+          "Meta": Object {
+            "hints": Map {
+              Symbol(filename) => "C:\\\\data\\\\Templates\\\\TestProject\\\\Routes\\\\App Route.yml",
+            },
+            "isDirty": false,
+            "isNew": false,
+          },
+          "Parent": "f7b28237-9568-41a4-bcc6-3375e24a1a46",
+          "Path": Path {
+            "Folder": "/sitecore/templates/Helix/Project/TestProject/Routes",
+            "Name": "App Route",
+            "Path": "/sitecore/templates/Helix/Project/TestProject/Routes/App Route",
+            "Tokens": Array [
+              "sitecore",
+              "templates",
+              "Helix",
+              "Project",
+              "TestProject",
+              "Routes",
+              "App Route",
+            ],
+          },
+          "SharedFields": Array [
+            Field {
+              "Hint": "__Icon",
+              "ID": "06d5295c-ed2f-4a54-9bf2-26228d113318",
+              "Type": undefined,
+              "Value": "Apps/16x16/routes.png",
+            },
+            Field {
+              "Hint": "__Base template",
+              "ID": "12c33f3f-86c5-43a5-aeb4-5598cec45116",
+              "Type": "tree list",
+              "Value": "{B36BA9FD-0DC0-49C8-BEA2-E55D70E6AF28}",
+            },
+            Field {
+              "Hint": "__Standard values",
+              "ID": "f7d48a55-2158-4f02-9356-756654404f73",
+              "Type": undefined,
+              "Value": "{8A0619DE-2EE0-4CF3-801C-8CEBEC5D2104}",
+            },
+          ],
+          "Template": "ab86861a-6030-46c5-b394-e8f99e8b87db",
+        },
+        "8a0619de-2ee0-4cf3-801c-8cebec5d2104" => Item {
+          "DB": "master",
+          "ID": "8a0619de-2ee0-4cf3-801c-8cebec5d2104",
+          "Languages": Array [
+            Language {
+              "Fields": Array [],
+              "Language": "en",
+              "Versions": Array [
+                Version {
+                  "Fields": Array [
+                    Field {
+                      "Hint": "__Created",
+                      "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                      "Type": undefined,
+                      "Value": "20180917T194639Z",
+                    },
+                  ],
+                  "Version": 1,
+                },
+              ],
+            },
+          ],
+          "Meta": Object {
+            "hints": Map {
+              Symbol(filename) => "C:\\\\data\\\\Templates\\\\TestProject\\\\Routes\\\\App Route\\\\__Standard Values.yml",
+            },
+            "isDirty": false,
+            "isNew": false,
+          },
+          "Parent": "f529a584-cec1-41a7-9eeb-334938a98285",
+          "Path": Path {
+            "Folder": "/sitecore/templates/Helix/Project/TestProject/Routes/App Route",
+            "Name": "__Standard Values",
+            "Path": "/sitecore/templates/Helix/Project/TestProject/Routes/App Route/__Standard Values",
+            "Tokens": Array [
+              "sitecore",
+              "templates",
+              "Helix",
+              "Project",
+              "TestProject",
+              "Routes",
+              "App Route",
+              "__Standard Values",
+            ],
+          },
+          "SharedFields": Array [
+            Field {
+              "Hint": "__Renderings",
+              "ID": "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e",
+              "Type": "layout",
+              "Value": "<r xmlns:xsd=\\"http://www.w3.org/2001/XMLSchema\\">
+  <d
+    id=\\"{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}\\"
+    l=\\"{C726B750-60D7-49CF-A39C-5C729ACF8531}\\">
+    <p
+      uid=\\"{42FCCB74-B2B0-4372-85E5-20E0F0A0216E}\\"
+      key=\\"jss-main\\"
+      md=\\"{174A907F-0627-4691-BF12-3083B65743E3}\\" />
+  </d>
+</r>
+",
+            },
+          ],
+          "Template": "f529a584-cec1-41a7-9eeb-334938a98285",
+        },
+        "66d58577-b9cb-4b00-a08f-9024fe780b05" => Item {
+          "DB": "master",
+          "ID": "66d58577-b9cb-4b00-a08f-9024fe780b05",
+          "Languages": Array [
+            Language {
+              "Fields": Array [],
+              "Language": "en",
+              "Versions": Array [
+                Version {
+                  "Fields": Array [
+                    Field {
+                      "Hint": "__Created",
+                      "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                      "Type": undefined,
+                      "Value": "20180917T192504Z",
+                    },
+                    Field {
+                      "Hint": "__Created by",
+                      "ID": "5dd74568-4d4b-44c1-b513-0af5f4cda34f",
+                      "Type": undefined,
+                      "Value": "sitecore\\\\admin
+",
+                    },
+                  ],
+                  "Version": 1,
+                },
+              ],
+            },
+          ],
+          "Meta": Object {
+            "hints": Map {
+              Symbol(filename) => "C:\\\\data\\\\Templates\\\\TestProject\\\\Routes\\\\App Route\\\\Page Metadata.yml",
+            },
+            "isDirty": false,
+            "isNew": false,
+          },
+          "Parent": "f529a584-cec1-41a7-9eeb-334938a98285",
+          "Path": Path {
+            "Folder": "/sitecore/templates/Helix/Project/TestProject/Routes/App Route",
+            "Name": "Page Metadata",
+            "Path": "/sitecore/templates/Helix/Project/TestProject/Routes/App Route/Page Metadata",
+            "Tokens": Array [
+              "sitecore",
+              "templates",
+              "Helix",
+              "Project",
+              "TestProject",
+              "Routes",
+              "App Route",
+              "Page Metadata",
+            ],
+          },
+          "SharedFields": Array [],
+          "Template": "e269fbb5-3750-427a-9149-7aa950b49301",
+        },
+        "5330c186-146f-4145-97e1-10a974493ea4" => Item {
+          "DB": "master",
+          "ID": "5330c186-146f-4145-97e1-10a974493ea4",
+          "Languages": Array [
+            Language {
+              "Fields": Array [],
+              "Language": "en",
+              "Versions": Array [
+                Version {
+                  "Fields": Array [
+                    Field {
+                      "Hint": "__Created",
+                      "ID": "25bed78c-4957-4165-998a-ca1b52f67497",
+                      "Type": undefined,
+                      "Value": "20180917T192504Z",
+                    },
+                  ],
+                  "Version": 1,
+                },
+              ],
+            },
+          ],
+          "Meta": Object {
+            "hints": Map {
+              Symbol(filename) => "C:\\\\data\\\\Templates\\\\TestProject\\\\Routes\\\\App Route\\\\Page Metadata\\\\pageTitle.yml",
+            },
+            "isDirty": false,
+            "isNew": false,
+          },
+          "Parent": "66d58577-b9cb-4b00-a08f-9024fe780b05",
+          "Path": Path {
+            "Folder": "/sitecore/templates/Helix/Project/TestProject/Routes/App Route/Page Metadata",
+            "Name": "pageTitle",
+            "Path": "/sitecore/templates/Helix/Project/TestProject/Routes/App Route/Page Metadata/pageTitle",
+            "Tokens": Array [
+              "sitecore",
+              "templates",
+              "Helix",
+              "Project",
+              "TestProject",
+              "Routes",
+              "App Route",
+              "Page Metadata",
+              "pageTitle",
+            ],
+          },
+          "SharedFields": Array [
+            Field {
+              "Hint": "Type",
+              "ID": "ab162cc0-dc80-4abf-8871-998ee5d7ba32",
+              "Type": undefined,
+              "Value": "Single-Line Text",
+            },
+          ],
+          "Template": "455a3e98-a627-4b40-8035-e683a0331ac7",
+        },
+      },
+      "_ops": Array [],
+      "_proxyHandler": ItemProxyHandler {
+        "db": [Circular],
+      },
+      "name": "master",
+    },
+  },
+  "_trees": Map {
+    "master" => BucketTree {
+      "root": BucketEntry {
+        "bucket": null,
+        "children": Array [
+          BucketEntry {
+            "bucket": Bucket {
+              "DB": "master",
+              "Filepath": "\\\\data\\\\Renderings",
+              "Path": Path {
+                "Folder": "/sitecore/layout/Renderings/Helix/Project",
+                "Name": "TestProject",
+                "Path": "/sitecore/layout/Renderings/Helix/Project/TestProject",
+                "Tokens": Array [
+                  "sitecore",
+                  "layout",
+                  "Renderings",
+                  "Helix",
+                  "Project",
+                  "TestProject",
+                ],
+              },
+            },
+            "children": Array [],
+            "parent": [Circular],
+            "path": "/sitecore/layout/Renderings/Helix/Project/TestProject",
+          },
+          BucketEntry {
+            "bucket": Bucket {
+              "DB": "master",
+              "Filepath": "\\\\data\\\\Templates",
+              "Path": Path {
+                "Folder": "/sitecore/templates/Helix/Project",
+                "Name": "TestProject",
+                "Path": "/sitecore/templates/Helix/Project/TestProject",
+                "Tokens": Array [
+                  "sitecore",
+                  "templates",
+                  "Helix",
+                  "Project",
+                  "TestProject",
+                ],
+              },
+            },
+            "children": Array [],
+            "parent": [Circular],
+            "path": "/sitecore/templates/Helix/Project/TestProject",
+          },
+        ],
+        "parent": null,
+        "path": "",
+      },
+    },
+  },
+}
+`;

@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`XMLPredicateLoader should load predicates from an xml config file 1`] = `
+Map {
+  "master" => BucketTree {
+    "root": BucketEntry {
+      "bucket": null,
+      "children": Array [
+        BucketEntry {
+          "bucket": Bucket {
+            "DB": "master",
+            "Filepath": "data\\\\Renderings",
+            "Path": Path {
+              "Folder": "/sitecore/layout/Renderings/Helix/Project",
+              "Name": "TestProject",
+              "Path": "/sitecore/layout/Renderings/Helix/Project/TestProject",
+              "Tokens": Array [
+                "sitecore",
+                "layout",
+                "Renderings",
+                "Helix",
+                "Project",
+                "TestProject",
+              ],
+            },
+          },
+          "children": Array [],
+          "parent": [Circular],
+          "path": "/sitecore/layout/Renderings/Helix/Project/TestProject",
+        },
+        BucketEntry {
+          "bucket": Bucket {
+            "DB": "master",
+            "Filepath": "data\\\\Templates",
+            "Path": Path {
+              "Folder": "/sitecore/templates/Helix/Project",
+              "Name": "TestProject",
+              "Path": "/sitecore/templates/Helix/Project/TestProject",
+              "Tokens": Array [
+                "sitecore",
+                "templates",
+                "Helix",
+                "Project",
+                "TestProject",
+              ],
+            },
+          },
+          "children": Array [],
+          "parent": [Circular],
+          "path": "/sitecore/templates/Helix/Project/TestProject",
+        },
+      ],
+      "parent": null,
+      "path": "",
+    },
+  },
+}
+`;

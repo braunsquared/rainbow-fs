@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Path should get a relative path 1`] = `
+Path {
+  "Folder": "/is/a",
+  "Name": "test",
+  "Path": "/is/a/test",
+  "Tokens": Array [
+    "is",
+    "a",
+    "test",
+  ],
+}
+`;
+
+exports[`Path should parse a path into the appropriate segments 1`] = `
+Path {
+  "Folder": "/sitecore/content/this/is/a",
+  "Name": "test",
+  "Path": "/sitecore/content/this/is/a/test",
+  "Tokens": Array [
+    "sitecore",
+    "content",
+    "this",
+    "is",
+    "a",
+    "test",
+  ],
+}
+`;

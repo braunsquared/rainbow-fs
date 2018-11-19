@@ -1,0 +1,21 @@
+﻿---
+ID: "aad95a88-cecc-4f18-ad44-2fdd0f2777cc"
+Parent: "1bc04f33-264f-4c03-9d23-87cf9b14044b"
+Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
+Path: /sitecore/templates/Helix/Project/TestProject/Components/ContentBlock/Data/content
+DB: master
+SharedFields:
+- ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
+  Hint: Type
+  Value: Rich Text
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20180919T212018Z

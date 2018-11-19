@@ -1,0 +1,24 @@
+﻿---
+ID: "e4be58e2-a01c-4365-996e-7cb6684ed945"
+Parent: "87120214-1be8-7c76-05c1-eaebfbffec1d"
+Template: "04646a89-996f-4ee7-878a-ffdbf1f0ef0d"
+Path: /sitecore/layout/Renderings/Helix/Project/TestProject/GlobalNav
+DB: master
+SharedFields:
+- ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
+  Hint: componentName
+  Value: GlobalNav
+- ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
+  Hint: Datasource Template
+  Value: /sitecore/templates/Helix/Project/TestProject/DataSources/GlobalNav
+- ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
+  Hint: Datasource Location
+  Value: "query:./ancestor-or-self::*[@@templatename='App']/Components/GlobalNav"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181029T144143Z

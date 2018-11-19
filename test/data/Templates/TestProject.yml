@@ -1,0 +1,14 @@
+﻿---
+ID: "228d3c60-152b-c3e3-f136-684c4d06d061"
+Parent: "0725a327-cd61-14f8-8aed-8d74b9917c6c"
+Template: "0437fee2-44c9-46a6-abe9-28858d9fee8c"
+Path: /sitecore/templates/Helix/Project/TestProject
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170511T175239Z
