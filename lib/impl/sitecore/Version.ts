@@ -1,9 +1,10 @@
 import { IVersion, IField } from '../../model/Sitecore';
-import { Field } from "./Field";
+import { Field } from './Field';
+import { IYamlWriter } from '../../io/IYamlWriter';
 
 export class Version implements IVersion {
   Version: number = 1;
-  Fields: Array<IField> = [];
+  Fields: IField[] = [];
 
   constructor(version: number) {
     this.Version = version;
@@ -28,7 +29,7 @@ export class Version implements IVersion {
 
   toObject(): any {
     const obj: any = {
-      Version: this.Version
+      Version: this.Version,
     };
 
     if (this.Fields.length) {
@@ -36,6 +37,17 @@ export class Version implements IVersion {
     }
 
     return obj;
+  }
+
+  write(writer: IYamlWriter) {
+    writer.writeBeginListItem('Version', `${this.Version}`);
+
+    if (this.Fields.length) {
+      writer.writeMap('Fields');
+      writer.increaseIndent();
+      this.Fields.forEach(f => f.write(writer));
+      writer.decreaseIndent();
+    }
   }
 
   static fromObject(obj: any): Version {

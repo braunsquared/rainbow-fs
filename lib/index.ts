@@ -13,3 +13,10 @@ export * from './impl/sitecore/Field';
 export * from './impl/sitecore/Path';
 
 export * from './util/ItemInspector';
+export * from './util/ItemBuilder';
+
+import * as SitecoreFieldDefinitions from './util/SitecoreFieldDefinitions';
+export { SitecoreFieldDefinitions };
+
+import * as SitecoreTemplateIds from './util/SitecoreTemplateIds';
+export { SitecoreTemplateIds };

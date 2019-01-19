@@ -1,10 +1,10 @@
-import { IOperation, AsyncOperationCallback } from '../../model/Operation';
+import { AbstractItemOp } from './AbstractItemOp';
 import { IItem } from '../../model/Sitecore';
+import { IStore } from '../../Store';
 import { Bucket } from '../../Bucket';
-export declare class DeleteItemOp implements IOperation {
+export declare class DeleteItemOp extends AbstractItemOp {
     name: string;
-    item: IItem;
     constructor(item: IItem);
-    commit(bucket: Bucket, cb?: AsyncOperationCallback): void;
+    performCommit(store: IStore, bucket: Bucket): Promise<void>;
 }
 //# sourceMappingURL=DeleteItemOp.d.ts.map

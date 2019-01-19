@@ -1,11 +1,12 @@
 import { IItem } from './Sitecore';
-import { Bucket } from '../Bucket';
+import { IStore } from '../Store';
 
 export type AsyncOperationCallback = (err?: Error | null) => void;
 
 export interface IOperation {
   readonly name: string;
   readonly item: IItem;
+  readonly committed: boolean;
 
-  commit(bucket: Bucket, cb?: AsyncOperationCallback): void;
+  commit(store: IStore): Promise<void>;
 }

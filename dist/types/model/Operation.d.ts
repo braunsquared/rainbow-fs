@@ -1,9 +1,10 @@
 import { IItem } from './Sitecore';
-import { Bucket } from '../Bucket';
+import { IStore } from '../Store';
 export declare type AsyncOperationCallback = (err?: Error | null) => void;
 export interface IOperation {
     readonly name: string;
     readonly item: IItem;
-    commit(bucket: Bucket, cb?: AsyncOperationCallback): void;
+    readonly committed: boolean;
+    commit(store: IStore): Promise<void>;
 }
 //# sourceMappingURL=Operation.d.ts.map

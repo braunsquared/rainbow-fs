@@ -1,4 +1,5 @@
 import { ILanguage, IVersion, IField } from '../../model/Sitecore';
+import { IYamlWriter } from '../../io/IYamlWriter';
 export declare class Language implements ILanguage {
     Language: string;
     Fields: Array<IField>;
@@ -11,6 +12,7 @@ export declare class Language implements ILanguage {
     removeField(field: IField): this;
     field(idOrName: string): IField | undefined;
     toObject(): any;
+    write(writer: IYamlWriter): void;
     static fromObject(obj: any): Language;
 }
 //# sourceMappingURL=Language.d.ts.map

@@ -1,6 +1,7 @@
 import { ILanguage, IVersion, IField } from '../../model/Sitecore';
 import { Version } from "./Version";
 import { Field } from './Field';
+import { IYamlWriter } from '../../io/IYamlWriter';
 
 export class Language implements ILanguage {
   Language: string = "en";
@@ -51,8 +52,8 @@ export class Language implements ILanguage {
 
   field(idOrName: string): IField | undefined {
     const field = this.Fields.find(f => f.ID === idOrName || f.Hint === idOrName);
-    
-    if(field) {
+
+    if (field) {
       return field;
     }
 
@@ -76,6 +77,25 @@ export class Language implements ILanguage {
     }
 
     return obj;
+  }
+
+  write(writer: IYamlWriter) {
+    if (this.Fields.length === 0 && this.Versions.length === 0) {
+      return;
+    }
+
+    writer.writeBeginListItem('Language', this.Language);
+    if (this.Fields.length) {
+      writer.writeMap('Fields');
+      writer.increaseIndent();
+      this.Fields.forEach(f => f.write(writer));
+      writer.decreaseIndent();
+    }
+
+    writer.writeMap('Versions');
+    writer.increaseIndent();
+    this.Versions.forEach(v => v.write(writer));
+    writer.decreaseIndent();
   }
 
   static fromObject(obj: any): Language {

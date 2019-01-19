@@ -5,6 +5,10 @@ import { IOperation } from '../../model/Operation';
 import { CreateItemOp } from '../ops/CreateItemOp';
 import { DeleteItemOp } from '../ops/DeleteItemOp';
 import { UpdateItemOp } from '../ops/UpdateItemOp';
+import { IStore } from '../../Store';
+import debug from 'debug';
+
+const _log = debug('rainbow-fs:db');
 
 export function memoryDbFactory(name: string): IDb {
   return new MemoryDb(name);
@@ -15,12 +19,12 @@ export class MemoryDb implements IDb {
   private _items: Map<GUID, IItem> = new Map<GUID, IItem>();
 
   private _proxyHandler: ItemProxyHandler;
-  private _ops: Array<IOperation>;
+  private _ops: IOperation[];
 
   constructor(name: string) {
     this.name = name;
     this._proxyHandler = new ItemProxyHandler(this);
-    this._ops = new Array();
+    this._ops = [];
   }
 
   get items(): Map<GUID, IItem> {
@@ -68,7 +72,7 @@ export class MemoryDb implements IDb {
     // Remove all our child items first
     const items = new Map(this._items);
     items.forEach(other => {
-      if(other.Parent && other.Parent.toLowerCase() === lcItemId) {
+      if (other.Parent && other.Parent.toLowerCase() === lcItemId) {
         this.removeItem(item);
       }
     });
@@ -80,7 +84,7 @@ export class MemoryDb implements IDb {
     this._ops = this._ops.filter(op => op.item !== item);
 
     // Add the op if it wasn't a new item
-    if(!item.Meta.isNew) {
+    if (!item.Meta.isNew) {
       this._ops.push(new DeleteItemOp(item));
     }
 
@@ -97,7 +101,7 @@ export class MemoryDb implements IDb {
         item.Meta.isDirty = true;
       } else {
         const op = this._ops.find(op => op.item === item && op instanceof UpdateItemOp);
-        if(op) {
+        if (op) {
           (op as UpdateItemOp).recordChange(prop, oldValue, newValue);
         }
       }
@@ -108,16 +112,16 @@ export class MemoryDb implements IDb {
       this._items.set(newValue.toLowerCase(), item);
 
       this._items.forEach(child => {
-        if(child.Parent && child.Parent.toLowerCase() === oldValue) {
+        if (child.Parent && child.Parent.toLowerCase() === oldValue) {
           child.Parent = newValue;
         }
       });
-    } else if(prop === 'Path') {
+    } else if (prop === 'Path') {
       this._items.forEach(child => {
-        if(child.Parent === item.ID) {
+        if (child.Parent === item.ID) {
           child.Path = child.Path.rebase((oldValue as IPath).Path, (newValue as IPath).Path);
         }
-      })
+      });
     }
   }
 
@@ -125,11 +129,27 @@ export class MemoryDb implements IDb {
     return this.operationCount() > 0;
   }
 
-  get operations(): Array<IOperation> {
+  get operations(): IOperation[] {
     return [...this._ops];
   }
 
   operationCount(): number {
     return this._ops.length;
+  }
+
+  async commit(store: IStore) {
+    _log(`committing ${this._ops.length} operations`);
+
+    let n = 0;
+    for (let i = 0; i < this._ops.length; i = i + 1) {
+      await this._ops[i].commit(store);
+      if (this._ops[i].committed) {
+        n += 1;
+      }
+    }
+
+    this._ops = this._ops.filter(op => !op.committed);
+
+    _log(`committed ${n} operations. ${this._ops.length} operations left uncommitted.`);
   }
 }

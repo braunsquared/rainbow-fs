@@ -11,6 +11,7 @@ export interface IStoreConfig {
 export interface IStore {
     readonly config: IStoreConfig;
     addBucket(bucket: Bucket): void;
+    closestBucket(db: string, path: string): Bucket | null;
     getDatabase(name: string): IDb | undefined;
     getOrCreateDatabase(name: string): IDb;
     generateId(src: string): string;
@@ -58,6 +59,14 @@ export declare class Store implements IStore {
      */
     addBucket(bucket: Bucket): void;
     /**
+     * Find a `Bucket` which is closest to 'path' in the requested 'db'.
+     *
+     * @param db - Name of the db
+     * @param path - Sitecore Path
+     * @returns the closest `Bucket` or null
+     */
+    closestBucket(db: string, path: string): Bucket | null;
+    /**
      * Create a new `IItem` using the `itemFactory` and register it with it's respective `IDb`
      *
      * @param obj - The deserialized item data as a plain JSON Object.
@@ -85,5 +94,6 @@ export declare class Store implements IStore {
      * Perform a `read` call on all registered `Bucket`s
      */
     readAll(): Promise<void>;
+    commitAll(): Promise<void>;
 }
 //# sourceMappingURL=Store.d.ts.map

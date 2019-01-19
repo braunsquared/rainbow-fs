@@ -1,3 +1,8 @@
 {
-  "extends": "tslint-config-airbnb"
+  "extends": "tslint-config-airbnb",
+  "rules": {
+    "max-line-length": [true, 150],
+    "ter-arrow-parens": [false],
+    "variable-name": [true, "allow-leading-underscore", "allow-pascal-case"]
+  }
 }

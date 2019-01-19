@@ -4,11 +4,11 @@ export declare class BucketEntry {
     readonly path: string;
     readonly parent: BucketEntry | null;
     readonly bucket: Bucket | null;
-    readonly children: Array<BucketEntry>;
+    readonly children: BucketEntry[];
     constructor(path: string, parent?: BucketEntry | null, bucket?: Bucket | null);
     bucketForFSPath(fsPath: string): Bucket | undefined;
     addBucket(path: string, bucket: Bucket): void;
-    closest(path: string): BucketEntry | null;
+    closest(path: string, deep?: boolean): BucketEntry | null;
     walk(cb: BucketWalkCallback): void;
 }
 export declare class BucketTree {

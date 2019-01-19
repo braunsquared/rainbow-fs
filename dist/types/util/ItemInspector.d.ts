@@ -1,6 +1,6 @@
 import { IStore } from '../Store';
 import { IItem, GUID } from '../model/Sitecore';
-interface FieldDefinition {
+export interface FieldDefinition {
     ID: GUID;
     Name: string;
     Type: string;
@@ -8,7 +8,7 @@ interface FieldDefinition {
     Unversioned: boolean;
     Item?: IItem;
 }
-interface FieldDefinitionResults {
+export interface FieldDefinitionResults {
     errors: Error[];
     fields: FieldDefinition[];
 }
@@ -19,6 +19,7 @@ declare class ItemInspector {
     constructor(store: IStore, item: IItem);
     readonly Item: IItem;
     getTemplateItem(): IItem | undefined;
+    getStandardValues(): IItem | undefined;
     inspectTemplate(): ItemInspector;
     children(): IItem[];
     fieldDefinitions(): FieldDefinitionResults;

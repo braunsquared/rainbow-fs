@@ -6,7 +6,7 @@ export class BucketEntry {
   readonly path: string;
   readonly parent: BucketEntry | null;
   readonly bucket: Bucket | null;
-  readonly children: Array<BucketEntry>;
+  readonly children: BucketEntry[];
 
   constructor(path: string, parent: BucketEntry | null = null, bucket: Bucket | null = null) {
     this.path = path;
@@ -31,11 +31,11 @@ export class BucketEntry {
   }
 
   addBucket(path: string, bucket: Bucket): void {
-    if(!path) {
+    if (!path) {
       throw new Error('Invalid path. Duplicate bucket path or you failed to pass one');
     }
 
-    const closest = this.closest(path);
+    const closest = this.closest(path, false);
     if (closest) {
       return closest.addBucket(path.substring(closest.path.length), bucket);
     }
@@ -45,20 +45,26 @@ export class BucketEntry {
     this.children
       .filter(child => child.path.indexOf(path) === 0)
       .forEach(child => {
-        entry.addBucket(child.path.substring(path.length), child.bucket as Bucket)
+        entry.addBucket(child.path.substring(path.length), child.bucket as Bucket);
         this.children.splice(this.children.indexOf(child), 1);
       });
-    
+
     this.children.push(entry);
   }
 
-  closest(path: string): BucketEntry | null {
-    const entry = this.children.find(child => path.indexOf(child.path) === 0);
+  closest(path: string, deep: boolean = true): BucketEntry | null {
+    const lcPath = path.toLowerCase();
+    const entry = this.children.find(child => lcPath.indexOf(child.path.toLowerCase()) === 0);
+    // console.log('closest', `[${path}]`, entry ? `\nChildren:\n${entry.children.map(c => c.path).join('\n')}\n` : 'null');
     if (!entry) {
       return null;
     }
 
-    return entry.closest(path.substring(entry.path.length + 1)) || entry;
+    if (!deep) {
+      return entry;
+    }
+
+    return entry.closest(path.substring(entry.path.length)) || entry;
   }
 
   walk(cb: BucketWalkCallback) {
@@ -86,7 +92,7 @@ export class BucketTree {
     }
 
     const existingBucket = this.root.bucketForFSPath(bucket.Filepath);
-    if(existingBucket) {
+    if (existingBucket) {
       throw new Error('Duplicate file system path');
     }
 

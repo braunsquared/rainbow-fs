@@ -1,14 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Field = /** @class */ (function () {
-    function Field(id, hint, value) {
+class Field {
+    constructor(id, hint, value) {
         this.ID = "";
         this.ID = id;
         this.Hint = hint;
         this.Value = value;
     }
-    Field.prototype.toObject = function () {
-        var obj = {
+    toObject() {
+        const obj = {
             ID: this.ID,
             Hint: this.Hint,
             Value: this.Value,
@@ -16,14 +16,28 @@ var Field = /** @class */ (function () {
         if (this.Type) {
             obj.Type = this.Type;
         }
+        if (this.BlobID) {
+            obj.BlobID = this.BlobID;
+        }
         return obj;
-    };
-    Field.fromObject = function (obj) {
-        var field = new Field(obj.ID, obj.Hint, obj.Value);
+    }
+    write(writer) {
+        writer.writeBeginListItem('ID', this.ID);
+        writer.writeMap('Hint', this.Hint);
+        if (this.BlobID) {
+            writer.writeMap('BlobID', this.BlobID);
+        }
+        if (this.Type) {
+            writer.writeMap('Type', this.Type);
+        }
+        writer.writeMap('Value', this.Value);
+    }
+    static fromObject(obj) {
+        const field = new Field(obj.ID, obj.Hint, obj.Value);
         field.Type = obj.Type;
+        field.BlobID = obj.BlobID;
         return field;
-    };
-    return Field;
-}());
+    }
+}
 exports.Field = Field;
 //# sourceMappingURL=Field.js.map

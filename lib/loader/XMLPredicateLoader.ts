@@ -29,6 +29,10 @@ class XMLPredicateLoader {
     });
   }
 
+  normalizePathSeparator(input: string): string {
+    return input.replace(/[\\\/]/g, path.sep);
+  }
+
   async load(xmlPath: string, store: IStore) {
     const data = await readFile(xmlPath);
     const xmlData = data.toString('utf8');
@@ -48,7 +52,7 @@ class XMLPredicateLoader {
 
     configs.forEach(config => {
       // Determine the fspath
-      const physicalRoot = this.replaceVariables(config.targetDataStore.attr.physicalRootPath);
+      const physicalRoot = this.normalizePathSeparator(this.replaceVariables(config.targetDataStore.attr.physicalRootPath));
 
       // Add the includes
       const includes = __asArray(config.predicate.include);

@@ -29,12 +29,14 @@ export class ItemProxyHandler implements ProxyHandler<IItem> {
 
   get(target: IItem, prop: PropertyKey, receiver?: any): any {
     const val = Reflect.get(target, prop, receiver);
-    if(typeof val === 'function' && typeof prop === 'string' && (prop.startsWith('add') || prop.startsWith('remove'))) {
+    if (typeof val === 'function' && typeof prop === 'string' && (prop.startsWith('add') || prop.startsWith('remove'))) {
       return (...args: any[]): any => {
         this.db.notifyChange(target, prop.replace(/^(add|remove)/, ''), null, null);
-        return val.apply(this, args);
-      }
-    } else if(prop !== 'Meta' && typeof val === 'object') {
+        return val.apply(target, args);
+      };
+    }
+
+    if (prop !== 'Meta' && typeof val === 'object') {
       return new Proxy(val, new ItemAttributeProxyHandler(this, target, propertyKeyToString(prop)));
     }
 

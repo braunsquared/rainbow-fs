@@ -1,14 +1,20 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var DeleteItemOp = /** @class */ (function () {
-    function DeleteItemOp(item) {
-        this.name = "Delete Item";
-        this.item = item;
+const tslib_1 = require("tslib");
+const AbstractItemOp_1 = require("./AbstractItemOp");
+const debug_1 = tslib_1.__importDefault(require("debug"));
+const _log = debug_1.default('rainbow-fs:op:create');
+class DeleteItemOp extends AbstractItemOp_1.AbstractItemOp {
+    constructor(item) {
+        super(item);
+        this.name = 'Delete Item';
     }
-    DeleteItemOp.prototype.commit = function (bucket, cb) {
-        throw new Error('Method not implemented.');
-    };
-    return DeleteItemOp;
-}());
+    performCommit(store, bucket) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            _log(`unlinking item at ${this.item.Path.Path}`);
+            yield bucket.unlink(this.item);
+        });
+    }
+}
 exports.DeleteItemOp = DeleteItemOp;
 //# sourceMappingURL=DeleteItemOp.js.map

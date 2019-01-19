@@ -1,16 +1,20 @@
-import { IOperation, AsyncOperationCallback } from '../../model/Operation';
+import { AbstractItemOp } from './AbstractItemOp';
 import { IItem } from '../../model/Sitecore';
+import { IStore } from '../../Store';
 import { Bucket } from '../../Bucket';
+import debug from 'debug';
 
-export class CreateItemOp implements IOperation {
-  name: string = "Create Item"; 
-  item: IItem;
+const _log = debug('rainbow-fs:op:create');
+
+export class CreateItemOp extends AbstractItemOp {
+  name: string = 'Create Item';
 
   constructor(item: IItem) {
-    this.item = item;
+    super(item);
   }
-  
-  commit(bucket: Bucket, cb?: AsyncOperationCallback): void {
-    throw new Error('Method not implemented.');
+
+  async performCommit(store: IStore, bucket: Bucket) {
+    _log(`creating item at ${this.item.Path.Path}`);
+    await bucket.write(this.item);
   }
 }

@@ -1,107 +1,114 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var fs_extra_1 = tslib_1.__importDefault(require("fs-extra"));
-var js_yaml_1 = tslib_1.__importDefault(require("js-yaml"));
-var path_1 = tslib_1.__importDefault(require("path"));
-var glob_1 = tslib_1.__importDefault(require("glob"));
-var util_1 = tslib_1.__importDefault(require("util"));
-var Path_1 = require("./impl/sitecore/Path");
-var VirtualItem_1 = require("./impl/sitecore/VirtualItem");
-var Sitecore_1 = require("./model/Sitecore");
-var readFile = util_1.default.promisify(fs_extra_1.default.readFile);
-var writeFile = util_1.default.promisify(fs_extra_1.default.writeFile);
-var mkdirp = util_1.default.promisify(fs_extra_1.default.mkdirp);
-var asyncGlob = util_1.default.promisify(glob_1.default);
-var Bucket = /** @class */ (function () {
-    function Bucket(filepath, sitecorePath, db) {
+const tslib_1 = require("tslib");
+const fs_extra_1 = tslib_1.__importDefault(require("fs-extra"));
+const js_yaml_1 = tslib_1.__importDefault(require("js-yaml"));
+// tslint:disable-next-line:import-name
+const path_1 = tslib_1.__importDefault(require("path"));
+const glob_1 = tslib_1.__importDefault(require("glob"));
+const util_1 = tslib_1.__importDefault(require("util"));
+const debug_1 = tslib_1.__importDefault(require("debug"));
+const Path_1 = require("./impl/sitecore/Path");
+const VirtualItem_1 = require("./impl/sitecore/VirtualItem");
+const Sitecore_1 = require("./model/Sitecore");
+const YamlWriter_1 = require("./io/YamlWriter");
+const _log = debug_1.default('rainbow-fs:bucket');
+const readFile = util_1.default.promisify(fs_extra_1.default.readFile);
+const mkdirp = util_1.default.promisify(fs_extra_1.default.mkdirp);
+const unlink = util_1.default.promisify(fs_extra_1.default.unlink);
+const asyncGlob = util_1.default.promisify(glob_1.default);
+class Bucket {
+    constructor(filepath, sitecorePath, db) {
         this.Filepath = filepath;
         this.Path = new Path_1.Path(sitecorePath);
         this.DB = db;
     }
-    Bucket.prototype.convertItemPath = function (scPath) {
-        var deltaPath = new Path_1.Path(scPath.Folder.substring(this.Path.Path.length));
-        return path_1.default.join(this.Filepath, deltaPath.Path, scPath.Name + ".yml");
-    };
-    Bucket.prototype.read = function (store) {
-        return tslib_1.__awaiter(this, void 0, void 0, function () {
-            var files, i, file, buffer, content, item, db, bucketItem;
-            return tslib_1.__generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (!this.Filepath) {
-                            throw new Error("Filepath is not set. Unable to read from file system.");
-                        }
-                        return [4 /*yield*/, asyncGlob(path_1.default.join(this.Filepath, '**/*.yml'))];
-                    case 1:
-                        files = _a.sent();
-                        i = 0;
-                        _a.label = 2;
-                    case 2:
-                        if (!(i < files.length)) return [3 /*break*/, 5];
-                        file = files[i];
-                        return [4 /*yield*/, readFile(file)];
-                    case 3:
-                        buffer = _a.sent();
-                        content = js_yaml_1.default.safeLoad(buffer.toString('utf8'), { filename: file });
-                        item = store.createItemFromObject(content, {
-                            isNew: false,
-                            isDirty: false,
-                            hints: new Map([[Sitecore_1.HintFilename, file]]),
-                        });
-                        if (item.DB !== this.DB) {
-                            console.warn('Found item in bucket from different DB');
-                            return [2 /*return*/];
-                        }
-                        if (item.Path.Folder === this.Path.Path && item.Parent) {
-                            db = store.getDatabase(item.DB);
-                            if (!db) {
-                                throw new Error('Database should not be null');
-                            }
-                            bucketItem = db.getItem(item.Parent);
-                            if (!bucketItem) {
-                                bucketItem = new VirtualItem_1.VirtualItem(item.Parent, this.Path.Path);
-                                db.addItem(bucketItem);
-                            }
-                        }
-                        _a.label = 4;
-                    case 4:
-                        ++i;
-                        return [3 /*break*/, 2];
-                    case 5: return [2 /*return*/];
+    convertItemPath(item) {
+        const scPath = item.Path;
+        const deltaPath = new Path_1.Path(scPath.Folder.substring(this.Path.Folder.length));
+        const itemFilePath = path_1.default.join(this.Filepath, deltaPath.Path, `${scPath.Name}.yml`);
+        if (itemFilePath.length > 110 && item.Parent) {
+            return path_1.default.join(this.Filepath, item.Parent.toLowerCase(), `${scPath.Name}.yml`);
+        }
+        return itemFilePath;
+    }
+    read(store) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            if (!this.Filepath) {
+                throw new Error('Filepath is not set. Unable to read from file system.');
+            }
+            const files = yield asyncGlob(path_1.default.join(this.Filepath, '**/*.yml'));
+            for (let i = 0; i < files.length; i = i + 1) {
+                const file = files[i];
+                const buffer = yield readFile(file);
+                const content = js_yaml_1.default.safeLoad(buffer.toString('utf8'), { filename: file });
+                const item = store.createItemFromObject(content, {
+                    isNew: false,
+                    isDirty: false,
+                    hints: new Map([[Sitecore_1.HintFilename, file]]),
+                });
+                if (item.DB !== this.DB) {
+                    _log('WARNING: Found item in bucket from different DB');
+                    return;
                 }
+                if (item.Path.Folder === this.Path.Path && item.Parent) {
+                    // We may be able to infer some information about our item
+                    const db = store.getDatabase(item.DB);
+                    if (!db) {
+                        throw new Error('Database should not be null');
+                    }
+                    let bucketItem = db.getItem(item.Parent);
+                    if (!bucketItem) {
+                        bucketItem = new VirtualItem_1.VirtualItem(item.Parent, this.Path.Path);
+                        db.addItem(bucketItem);
+                    }
+                }
+            }
+        });
+    }
+    write(item) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            if (item.Meta.isVirtual) {
+                throw new Error('Unable to serialize virtual items');
+            }
+            else if (!item.Path.Path.startsWith(this.Path.Path)) {
+                throw new Error('Item is not a descendant of this bucket');
+            }
+            else if (item.DB !== this.DB) {
+                throw new Error('Item DB does not match the Bucket DB');
+            }
+            // Figure out what the path should be
+            const itemPath = this.convertItemPath(item);
+            const basePath = path_1.default.dirname(itemPath);
+            _log(`Writing item ${item.ID} to ${itemPath}`);
+            yield mkdirp(basePath);
+            yield new Promise((resolve, reject) => {
+                const stream = fs_extra_1.default.createWriteStream(itemPath, { encoding: 'utf-8' });
+                const writer = new YamlWriter_1.YamlWriter(stream);
+                item.write(writer);
+                stream.end(() => {
+                    resolve();
+                });
             });
         });
-    };
-    Bucket.prototype.write = function (item) {
-        return tslib_1.__awaiter(this, void 0, void 0, function () {
-            var itemPath, basePath;
-            return tslib_1.__generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (item.Meta.isVirtual) {
-                            throw new Error('Unable to serialize virtual items');
-                        }
-                        else if (!item.Path.Path.startsWith(this.Path.Path)) {
-                            throw new Error('Item is not a descendant of this bucket');
-                        }
-                        else if (item.DB !== this.DB) {
-                            throw new Error('Item DB does not match the Bucket DB');
-                        }
-                        itemPath = this.convertItemPath(item.Path);
-                        basePath = path_1.default.dirname(itemPath);
-                        return [4 /*yield*/, mkdirp(basePath)];
-                    case 1:
-                        _a.sent();
-                        return [4 /*yield*/, writeFile(itemPath, js_yaml_1.default.safeDump(item.toObject()))];
-                    case 2:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
+    }
+    unlink(item) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            if (item.Meta.isVirtual) {
+                throw new Error('Unable to delete virtual items');
+            }
+            else if (!item.Path.Path.startsWith(this.Path.Path)) {
+                throw new Error('Item is not a descendant of this bucket');
+            }
+            else if (item.DB !== this.DB) {
+                throw new Error('Item DB does not match the Bucket DB');
+            }
+            const itemPath = this.convertItemPath(item);
+            if (fs_extra_1.default.existsSync(itemPath)) {
+                yield unlink(itemPath);
+            }
         });
-    };
-    return Bucket;
-}());
+    }
+}
 exports.Bucket = Bucket;
 //# sourceMappingURL=Bucket.js.map

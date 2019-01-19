@@ -3,7 +3,7 @@ import { IItem, GUID } from '../model/Sitecore';
 import { treelistValue, booleanValue } from './field';
 import { compareGUIDs } from './guid';
 
-interface FieldDefinition {
+export interface FieldDefinition {
   ID: GUID;
   Name: string;
   Type: string;
@@ -12,7 +12,7 @@ interface FieldDefinition {
   Item?: IItem;
 }
 
-interface FieldDefinitionResults {
+export interface FieldDefinitionResults {
   errors: Error[];
   fields: FieldDefinition[];
 }
@@ -26,7 +26,7 @@ class ItemInspector {
 
   private _store: IStore;
   private _item: IItem;
-  
+
   constructor(store: IStore, item: IItem) {
     this._store = store;
     this._item = item;
@@ -41,6 +41,12 @@ class ItemInspector {
     }
 
     return db.getItem(this._item.Template);
+  }
+
+  getStandardValues(): IItem | undefined {
+    let standardVals = this._store.glob(`${this._item.Path.Path}/__Standard Values`, this._item.DB);
+    standardVals = standardVals.filter(item => item.Parent === this._item.ID);
+    return standardVals[0];
   }
 
   inspectTemplate(): ItemInspector {

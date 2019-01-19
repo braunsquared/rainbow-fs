@@ -1,5 +1,6 @@
 import { IItem, GUID, Hints } from './Sitecore';
 import { IOperation } from './Operation';
+import { IStore } from '../Store';
 
 export type DatabaseFactory = (name: string) => IDb;
 
@@ -14,6 +15,7 @@ export interface IDb {
   notifyChange(item: IItem, prop: string, oldValue: any, newValue: any): void;
 
   isDirty: boolean;
-  operations: Array<IOperation>;
+  operations: IOperation[];
   operationCount(): number;
+  commit(store: IStore): Promise<void>;
 }

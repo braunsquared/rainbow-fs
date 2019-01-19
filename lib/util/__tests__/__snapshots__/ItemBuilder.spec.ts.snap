@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ItemBuilder should build an item from an item template 1`] = `
+Item {
+  "DB": "master",
+  "ID": "a7c88f77-f55b-4f06-8ea7-dd8c5aae6dd0",
+  "Languages": Array [
+    Language {
+      "Fields": Array [],
+      "Language": "en",
+      "Versions": Array [
+        Version {
+          "Fields": Array [
+            Field {
+              "Hint": "heading",
+              "ID": "5813fa39-94c0-45b4-95fc-f22236aeb9a6",
+              "Type": undefined,
+              "Value": "This is a test",
+            },
+            Field {
+              "Hint": "content",
+              "ID": "aad95a88-cecc-4f18-ad44-2fdd0f2777cc",
+              "Type": undefined,
+              "Value": "of some cool shit",
+            },
+          ],
+          "Version": 1,
+        },
+      ],
+    },
+  ],
+  "Meta": Object {
+    "isDirty": false,
+    "isNew": true,
+    "isVirtual": false,
+  },
+  "Parent": "0725a327-cd61-14f8-8aed-8d74b9917c6c",
+  "Path": Path {
+    "Folder": "/sitecore/templates/Helix/Project",
+    "Name": "TestBuilder",
+    "Path": "/sitecore/templates/Helix/Project/TestBuilder",
+    "Tokens": Array [
+      "sitecore",
+      "templates",
+      "Helix",
+      "Project",
+      "TestBuilder",
+    ],
+  },
+  "SharedFields": Array [],
+  "Template": "261918c5-521a-422d-ae59-23f1d39ee0a3",
+}
+`;

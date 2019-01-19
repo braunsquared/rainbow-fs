@@ -1,118 +1,126 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var aguid_1 = tslib_1.__importDefault(require("aguid"));
-var BucketTree_1 = require("./BucketTree");
-var MemoryDb_1 = require("./impl/db/MemoryDb");
-var Item_1 = require("./impl/sitecore/Item");
-var Path_1 = require("./impl/sitecore/Path");
-var minimatch_1 = require("minimatch");
+const tslib_1 = require("tslib");
+const aguid_1 = tslib_1.__importDefault(require("aguid"));
+const BucketTree_1 = require("./BucketTree");
+const MemoryDb_1 = require("./impl/db/MemoryDb");
+const Item_1 = require("./impl/sitecore/Item");
+const Path_1 = require("./impl/sitecore/Path");
+const minimatch_1 = require("minimatch");
+const debug_1 = tslib_1.__importDefault(require("debug"));
+const _log = debug_1.default('rainbow-fs:store');
 exports.defaultConfig = {
     dbFactory: MemoryDb_1.memoryDbFactory,
     itemFactory: Item_1.defaultItemFactory,
-    idSource: function (item) { return item.Path instanceof Path_1.Path ? item.Path.Path : item.Path; },
+    idSource: item => item.Path instanceof Path_1.Path ? item.Path.Path : item.Path,
 };
 /**
  * The Store is the root container that ties everything together.  It manages
  * the database, buckets and factories for loading/creating/mutating items in
  * the data store.
  */
-var Store = /** @class */ (function () {
-    function Store(config) {
-        if (config === void 0) { config = exports.defaultConfig; }
-        this._config = tslib_1.__assign({}, exports.defaultConfig, config);
+class Store {
+    constructor(config = exports.defaultConfig) {
+        this._config = Object.assign({}, exports.defaultConfig, config);
         this._trees = new Map();
         this._dbs = new Map();
     }
-    Object.defineProperty(Store.prototype, "config", {
-        /**
-         * @returns The current `Store` configuration
-         */
-        get: function () {
-            return this._config;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Store.prototype, "trees", {
-        /**
-         * @returns A map of all the root `BucketTree`. One per `IDb` instance keyed on the database name.
-         */
-        get: function () {
-            return this._trees;
-        },
-        enumerable: true,
-        configurable: true
-    });
+    /**
+     * @returns The current `Store` configuration
+     */
+    get config() {
+        return this._config;
+    }
+    /**
+     * @returns A map of all the root `BucketTree`. One per `IDb` instance keyed on the database name.
+     */
+    get trees() {
+        return this._trees;
+    }
     /**
      * Get an existing `IDb` instance
      *
      * @param name - The database name
      * @returns The `IDb` instance or undefined
      */
-    Store.prototype.getDatabase = function (name) {
+    getDatabase(name) {
         return this._dbs.get(name);
-    };
+    }
     /**
      * Get an existing `IDb` instance or create one using the `dbFactory` if it does not exist.
      *
      * @param name The database name
      * @returns The `IDb` instance
      */
-    Store.prototype.getOrCreateDatabase = function (name) {
-        var db = this._dbs.get(name);
+    getOrCreateDatabase(name) {
+        let db = this._dbs.get(name);
         if (!db) {
             db = this._config.dbFactory(name);
             this._dbs.set(name, db);
         }
         return db;
-    };
+    }
     /**
      * Register a `Bucket` with it's respective database `BucketTree`.
      *
      * @param bucket - The `Bucket` to add
      */
-    Store.prototype.addBucket = function (bucket) {
-        var tree = this._trees.get(bucket.DB);
+    addBucket(bucket) {
+        let tree = this._trees.get(bucket.DB);
         if (!tree) {
             tree = new BucketTree_1.BucketTree();
             this._trees.set(bucket.DB, tree);
         }
         tree.addBucket(bucket);
-    };
+    }
+    /**
+     * Find a `Bucket` which is closest to 'path' in the requested 'db'.
+     *
+     * @param db - Name of the db
+     * @param path - Sitecore Path
+     * @returns the closest `Bucket` or null
+     */
+    closestBucket(db, path) {
+        const tree = this._trees.get(db);
+        if (!tree) {
+            return null;
+        }
+        return tree.closest(path);
+    }
     /**
      * Create a new `IItem` using the `itemFactory` and register it with it's respective `IDb`
      *
      * @param obj - The deserialized item data as a plain JSON Object.
      * @param meta - Any meta data to associate with the created `IItem`
      */
-    Store.prototype.createItemFromObject = function (obj, meta) {
-        var item = this.config.itemFactory(this, obj, meta);
-        var db = this.getOrCreateDatabase(item.DB);
+    createItemFromObject(obj, meta) {
+        const item = this.config.itemFactory(this, obj, meta);
+        const db = this.getOrCreateDatabase(item.DB);
         return db.addItem(item);
-    };
+    }
     /**
      * Generate a new deterministic GUID using `src` as the seed value.
      *
      * @param src - The source string for the generated GUID
      * @returns A predicatable GUID
      */
-    Store.prototype.generateId = function (src) {
+    generateId(src) {
         return aguid_1.default(src);
-    };
-    Store.prototype._globMatch = function (matcher, dbName) {
-        var db = this._dbs.get(dbName);
+    }
+    // tslint:disable-next-line:function-name
+    _globMatch(matcher, dbName) {
+        const db = this._dbs.get(dbName);
         if (!db) {
-            throw new Error("DB not found: " + dbName);
+            throw new Error(`DB not found: ${dbName}`);
         }
-        var items = [];
-        db.items.forEach(function (i) {
+        const items = [];
+        db.items.forEach(i => {
             if (matcher.match(i.Path.Path)) {
                 items.push(i);
             }
         });
         return items;
-    };
+    }
     /**
      * Find items in the `Store` which match the Glob pattern.  If no dbs are passed, a match
      * against all the databases is performed.
@@ -121,46 +129,44 @@ var Store = /** @class */ (function () {
      * @param dbs - A database name or array of database names to scope the search to
      * @returns An array of `IItem`s containing items that matched the Glob pattern
      */
-    Store.prototype.glob = function (pattern, dbs) {
-        var results = [];
-        var matcher = new minimatch_1.Minimatch(pattern, { nocase: true });
-        var dbsToTest;
+    glob(pattern, dbs) {
+        const results = [];
+        const matcher = new minimatch_1.Minimatch(pattern, { nocase: true });
+        let dbsToTest;
         if (!dbs) {
             dbsToTest = Array.from(this._dbs.keys());
         }
         else {
             dbsToTest = Array.isArray(dbs) ? dbs : [dbs];
         }
-        for (var i = 0; i < dbsToTest.length; ++i) {
-            results.splice.apply(results, [results.length, 0].concat(this._globMatch(matcher, dbsToTest[i])));
+        for (let i = 0; i < dbsToTest.length; i = i + 1) {
+            results.splice(results.length, 0, ...this._globMatch(matcher, dbsToTest[i]));
         }
         return results;
-    };
+    }
     /**
      * Perform a `read` call on all registered `Bucket`s
      */
-    Store.prototype.readAll = function () {
-        return tslib_1.__awaiter(this, void 0, void 0, function () {
-            var promises;
-            var _this = this;
-            return tslib_1.__generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        promises = [];
-                        this._trees.forEach(function (tree) {
-                            tree.walk(function (bucket) {
-                                promises.push(bucket.read(_this));
-                            });
-                        });
-                        return [4 /*yield*/, Promise.all(promises)];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
+    readAll() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const promises = [];
+            this._trees.forEach(tree => {
+                tree.walk(bucket => {
+                    promises.push(bucket.read(this));
+                });
             });
+            yield Promise.all(promises);
         });
-    };
-    return Store;
-}());
+    }
+    commitAll() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const dbs = Array.from(this._dbs.values());
+            for (let i = 0; i < dbs.length; i = i + 1) {
+                _log(`Committing operations on DB [${dbs[i].name}]`);
+                yield dbs[i].commit(this);
+            }
+        });
+    }
+}
 exports.Store = Store;
 //# sourceMappingURL=Store.js.map

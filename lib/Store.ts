@@ -8,6 +8,9 @@ import { memoryDbFactory } from './impl/db/MemoryDb';
 import { defaultItemFactory } from './impl/sitecore/Item';
 import { Path } from './impl/sitecore/Path';
 import { Minimatch, IMinimatch } from 'minimatch';
+import debug from 'debug';
+
+const _log = debug('rainbow-fs:store');
 
 export type IDSource = (objOrItem: any) => string;
 
@@ -21,6 +24,7 @@ export interface IStore {
   readonly config: IStoreConfig;
 
   addBucket(bucket: Bucket): void;
+  closestBucket(db: string, path: string): Bucket | null;
 
   getDatabase(name: string): IDb | undefined;
   getOrCreateDatabase(name: string): IDb;
@@ -37,7 +41,7 @@ export const defaultConfig: IStoreConfig = {
   dbFactory: memoryDbFactory,
   itemFactory: defaultItemFactory,
   idSource: item => item.Path instanceof Path ? item.Path.Path : item.Path,
-}
+};
 
 /**
  * The Store is the root container that ties everything together.  It manages
@@ -50,7 +54,7 @@ export class Store implements IStore {
   private _config: IStoreConfig;
 
   constructor(config: IStoreConfig = defaultConfig) {
-    this._config = {...defaultConfig, ...config};
+    this._config = { ...defaultConfig, ...config };
 
     this._trees = new Map();
     this._dbs = new Map();
@@ -72,7 +76,7 @@ export class Store implements IStore {
 
   /**
    * Get an existing `IDb` instance
-   * 
+   *
    * @param name - The database name
    * @returns The `IDb` instance or undefined
    */
@@ -82,13 +86,13 @@ export class Store implements IStore {
 
   /**
    * Get an existing `IDb` instance or create one using the `dbFactory` if it does not exist.
-   * 
+   *
    * @param name The database name
    * @returns The `IDb` instance
    */
   getOrCreateDatabase(name: string): IDb {
     let db = this._dbs.get(name);
-    if(!db) {
+    if (!db) {
       db = this._config.dbFactory(name);
       this._dbs.set(name, db);
     }
@@ -97,7 +101,7 @@ export class Store implements IStore {
 
   /**
    * Register a `Bucket` with it's respective database `BucketTree`.
-   * 
+   *
    * @param bucket - The `Bucket` to add
    */
   addBucket(bucket: Bucket): void {
@@ -110,8 +114,23 @@ export class Store implements IStore {
   }
 
   /**
-   * Create a new `IItem` using the `itemFactory` and register it with it's respective `IDb`
+   * Find a `Bucket` which is closest to 'path' in the requested 'db'.
    * 
+   * @param db - Name of the db
+   * @param path - Sitecore Path
+   * @returns the closest `Bucket` or null
+   */
+  closestBucket(db: string, path: string): Bucket | null {
+    const tree = this._trees.get(db);
+    if (!tree) {
+      return null;
+    }
+    return tree.closest(path);
+  }
+
+  /**
+   * Create a new `IItem` using the `itemFactory` and register it with it's respective `IDb`
+   *
    * @param obj - The deserialized item data as a plain JSON Object.
    * @param meta - Any meta data to associate with the created `IItem`
    */
@@ -123,7 +142,7 @@ export class Store implements IStore {
 
   /**
    * Generate a new deterministic GUID using `src` as the seed value.
-   * 
+   *
    * @param src - The source string for the generated GUID
    * @returns A predicatable GUID
    */
@@ -131,6 +150,7 @@ export class Store implements IStore {
     return aguid(src);
   }
 
+  // tslint:disable-next-line:function-name
   private _globMatch(matcher: IMinimatch, dbName: string): IItem[] {
     const db = this._dbs.get(dbName);
     if (!db) {
@@ -150,7 +170,7 @@ export class Store implements IStore {
   /**
    * Find items in the `Store` which match the Glob pattern.  If no dbs are passed, a match
    * against all the databases is performed.
-   * 
+   *
    * @param pattern - A standard Glob pattern
    * @param dbs - A database name or array of database names to scope the search to
    * @returns An array of `IItem`s containing items that matched the Glob pattern
@@ -167,7 +187,7 @@ export class Store implements IStore {
       dbsToTest = Array.isArray(dbs) ? dbs : [dbs];
     }
 
-    for(let i = 0; i < dbsToTest.length; ++i) {
+    for (let i = 0; i < dbsToTest.length; i = i + 1) {
       results.splice(results.length, 0, ...this._globMatch(matcher, dbsToTest[i]));
     }
 
@@ -185,5 +205,13 @@ export class Store implements IStore {
       });
     });
     await Promise.all(promises);
+  }
+
+  async commitAll() {
+    const dbs = Array.from(this._dbs.values());
+    for (let i = 0; i < dbs.length; i = i + 1) {
+      _log(`Committing operations on DB [${dbs[i].name}]`);
+      await dbs[i].commit(this);
+    }
   }
 }

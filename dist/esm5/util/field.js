@@ -1,16 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var guid_1 = require("./guid");
-function treelistValue(field, defaultValue) {
-    if (defaultValue === void 0) { defaultValue = []; }
+const guid_1 = require("./guid");
+function treelistValue(field, defaultValue = []) {
     if (!field || !field.Value) {
         return defaultValue;
     }
-    return field.Value.split(/\n|\r\n/).map(function (id) { return guid_1.toGUID(id); }).filter(function (i) { return i; });
+    return field.Value.split(/\n|\r\n/).map(id => guid_1.toGUID(id)).filter(i => i);
 }
 exports.treelistValue = treelistValue;
-function booleanValue(field, defaultValue) {
-    if (defaultValue === void 0) { defaultValue = false; }
+function booleanValue(field, defaultValue = false) {
     if (!field || !field.Value) {
         return defaultValue;
     }

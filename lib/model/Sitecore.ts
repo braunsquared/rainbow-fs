@@ -1,4 +1,5 @@
 import { IStore } from '../Store';
+import { IYamlWriter } from '../io/IYamlWriter';
 
 export type GUID = string | undefined;
 export type Hints = Map<Symbol, any>;
@@ -10,13 +11,14 @@ export type ItemFactory = (store: IStore, obj: any, meta?: ItemMetaData) => IIte
 
 export interface ISerializable {
   toObject(): any;
+  write(writer: IYamlWriter): void;
 }
 
 export interface IPath {
   readonly Name: string;
   readonly Folder: string;
   readonly Path: string;
-  readonly Tokens: Array<string>;
+  readonly Tokens: string[];
 
   rebase(oldRoot: string, newRoot: string): IPath;
   relativePath(childPath: IPath): IPath;
@@ -36,8 +38,9 @@ export interface IItem extends ISerializable {
   Template: GUID;
   Path: IPath;
   DB: string;
-  SharedFields: Array<IField>;
-  Languages: Array<ILanguage>;
+  BranchID: GUID;
+  SharedFields: IField[];
+  Languages: ILanguage[];
 
   Meta: ItemMetaData;
 
@@ -52,8 +55,8 @@ export interface IItem extends ISerializable {
 
 export interface ILanguage extends ISerializable {
   Language: string;
-  Versions: Array<IVersion>;
-  Fields: Array<IField>;
+  Versions: IVersion[];
+  Fields: IField[];
 
   addVersion(version: IVersion): this;
   removeVersion(version: IVersion): this;
@@ -67,7 +70,7 @@ export interface ILanguage extends ISerializable {
 
 export interface IVersion extends ISerializable {
   Version: number;
-  Fields: Array<IField>;
+  Fields: IField[];
 
   addField(field: IField): this;
   removeField(field: IField): this;
@@ -81,5 +84,3 @@ export interface IField extends ISerializable {
   Type?: string;
   Value?: string;
 }
-
-
